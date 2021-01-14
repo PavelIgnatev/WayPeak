@@ -1,0 +1,50 @@
+@font-face 
+    font-family: 'Graphik'
+    src: local('../fonts/Graphik Regular'), local('Graphik-Regular')
+    src: url('../fonts/Graphik-Regular.woff2') format('woff2')
+    src: url('../fonts/Graphik-Regular.woff') format('woff')
+    src: url('../fonts/Graphik-Regular.ttf') format('truetype')
+    font-weight: 400
+    font-style: normal
+@font-face 
+    font-family: 'Graphik'
+    src: local('../fonts/Graphik Bold'), local('Graphik-Bold')
+    src: url('../fonts/Graphik-Bold.woff2') format('woff2')
+    src: url('../fonts/Graphik-Bold.woff') format('woff')
+    src: url('../fonts/Graphik-Bold.ttf') format('truetype')
+    font-weight: 700
+    font-style: normal
+html
+    font-family: 'Graphik', sans-serif
+    font-weight: 400
+    font-size: 18px
+    line-height: 26px
+    box-sizing: border-box
+body, h1, h2, h3, h4, p, li, figure, figcaption, blockquote, dl, dd
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+body
+    scroll-behavior: smooth
+    text-rendering: optimizeSpeed
+    
+ul,ol,li
+    list-style: none
+    padding: 0
+    margin: 0
+img
+    display: block
+    user-select: none
+article > * + *
+    margin-top: 1em
+input, button, textarea, select
+    font: inherit
+    &:focus, &:active
+        outline: none
+a
+    text-decoration: none
+.invert_5
+    filter: invert(0.5)
+.invert_1
+    filter: invert(1)
