@@ -153,11 +153,9 @@ label
   bottom: 0
 .input__focus
   border-bottom: 2px solid $twogreen !important
-  user-select: none
 .input__focus + label, input:invalid + label
   transition: 0.3s ease-in-out
   bottom: 20px
-  user-select: none
   font-size: 12px
 input
   background: white

@@ -29,6 +29,10 @@ const routes = [{
     component: () => import('../views/Home.vue')
   },
   {
+    path: '/wayPeak',
+    component: () => import('../views/wayPeak.vue')
+  },
+  {
     path: '/:randomSearchName(.*)',
     component: () => import('../views/PageNotFound.vue')
   }
