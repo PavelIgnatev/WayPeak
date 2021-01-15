@@ -14,15 +14,11 @@
             { input__focus: focusName || name },
             {
               invalid:
-                ($v.name.$dirty && !$v.name.required) ||
-                ($v.name.$model && !$v.name.minLength),
+                ($v.name.$dirty && !$v.name.required),
             },
           ]"
         />
         <label for="name">Имя</label>
-        <small v-if="$v.name.$model && !$v.name.minLength"
-          >Имя длиннее 2-ух символов</small
-        >
       </div>
       <div class="form__sername">
         <input
@@ -36,15 +32,11 @@
             { input__focus: focusSername || Sername },
             {
               invalid:
-                ($v.Sername.$dirty && !$v.Sername.required) ||
-                ($v.Sername.$model && !$v.Sername.minLength),
+                ($v.Sername.$dirty && !$v.Sername.required),
             },
           ]"
         />
         <label for="name">Фамилия</label>
-        <small v-if="$v.Sername.$model && !$v.Sername.minLength"
-          >Фамилия длинне 2-ух символов</small
-        >
       </div>
       <div class="form__mail">
         <input
@@ -57,7 +49,8 @@
             {
               invalid:
                 ($v.mail.$dirty && !$v.mail.required) ||
-                ($v.mail.$model && !$v.mail.email) || emailError,
+                ($v.mail.$model && !$v.mail.email) ||
+                emailError,
             },
           ]"
           @focus="focusMail = true"
@@ -91,26 +84,56 @@
         />
         <label for="password">Пароль</label>
         <small v-if="$v.password.$model && !$v.password.minLength"
-          >Введите пароль длиннее 6-ти символов</small
+          >Введите пароль длиннее 5-ти символов</small
         >
-        <div class="ShowHide"><img v-if="show" v-on:click="show = !show" src="../assets/img/icons/hide.svg" class="invert_5" alt="hide"><img v-if="!show" v-on:click="show = !show"  src="../assets/img/icons/show.svg" class="invert_5" alt="show"></div>
+        <div class="ShowHide">
+          <img
+            v-if="show"
+            v-on:click="show = !show"
+            src="../assets/img/icons/hide.svg"
+            class="invert_5"
+            alt="hide"
+          /><img
+            v-if="!show"
+            v-on:click="show = !show"
+            src="../assets/img/icons/show.svg"
+            class="invert_5"
+            alt="show"
+          />
+        </div>
+      </div>
+      <div style="display: flex">
+        <input
+          type="checkbox"
+          name="b"
+          id='check'
+          value=""
+          class="form__check"
+          v-model="checked"
+        />
+        <label for="check" class="form__checkbox" :class="{form__checkbox_active: checked}" style="display: flex"></label>
+        <div class="form__checbox_text">
+          Я согласен с условиями обработки
+          <router-link class="form__checbox_link" to="/"
+            >персональных данных</router-link
+          >
+        </div>
       </div>
       <button
         class="form__comin"
         type="submit"
         :class="{
           comin__disabled:
-            ($v.Sername.$model && !$v.Sername.minLength) ||
-            ($v.name.$model && !$v.name.minLength) ||
             ($v.password.$model && !$v.password.minLength) ||
             ($v.mail.$model && !$v.mail.email) ||
             !$v.Sername.$model ||
             !$v.name.$model ||
             !$v.password.$model ||
-            !$v.mail.$model,
+            !$v.mail.$model ||
+            !checked,
         }"
       >
-        Войти
+        Зарегистрироваться
       </button>
       <div class="registration mt50px">
         У вас уже есть аккаунт?
@@ -120,7 +143,7 @@
   </form>
 </template>
 <script>
-import { email, required, minLength} from "vuelidate/lib/validators";
+import { email, required, minLength } from "vuelidate/lib/validators";
 export default {
   name: "Registration",
   data() {
@@ -134,14 +157,15 @@ export default {
       focusPass: false,
       password: "",
       show: false,
-      emailError: false
+      emailError: false,
+      checked: false,
     };
   },
   validations: {
-    name: { minLength: minLength(2), required },
-    Sername: { minLength: minLength(2), required },
+    name: { required },
+    Sername: { required },
     mail: { email, required },
-    password: { minLength: minLength(7), required },
+    password: { minLength: minLength(6), required },
   },
   methods: {
     async submitHandler() {
@@ -155,14 +179,12 @@ export default {
         email: this.mail,
         password: this.password,
       };
-      try{
-        await this.$store.dispatch('register', formData)
+      try {
+        await this.$store.dispatch("register", formData);
         this.$router.push("/");
-  
-      }catch(e){
-        this.emailError = true
+      } catch (e) {
+        this.emailError = true;
       }
-      
     },
   },
 };

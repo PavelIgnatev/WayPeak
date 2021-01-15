@@ -25,6 +25,12 @@ export default {
     color: #212529
     font-size: 14px
     line-height: 18px
+  &__send_text
+    color: #212529
+    font-size: 16px
+    line-height: 22px
+    span
+      font-weight: 700
   &__icon
     margin-top: 64px
     margin-bottom: 64px
@@ -39,6 +45,42 @@ export default {
     font-size: 20px
     font-weight: 700
     margin-bottom: 46px
+  &__checkbox
+    margin-top: 3.5px
+    margin-right: 5px
+    position: relative
+    z-index: 100
+    width: 12px
+    height: 12px
+    border: 2px solid rgb(180, 185, 203)
+    cursor: pointer
+    transition: 0.1s ease-in-out
+    border-radius: 2px
+    &:hover
+      border: 2px solid $green
+    &_active
+      background: $green
+      border: 2px solid $green
+    &::after
+      content: ''
+      position: absolute
+      top: 7.5px
+      left: 0px
+      width: 6px
+      height: 1px
+      background: white
+      transform: rotate(40deg)
+    &::before 
+      content: ''
+      position: absolute
+      top: 5.5px
+      left: 3px
+      width: 10px
+      height: 1px
+      background: white
+      transform: rotate(-50deg)
+  input[type="checkbox"]
+    display: none
   &__mail, &__password, &__name, &__sername
     color: rgba(0,0,0,0.30)
     font-size: 14px
@@ -57,7 +99,7 @@ export default {
   &__comin
     font-size: 14px
     color: white
-    margin-top: 100px
+    margin-top: 70px
     width: 100%
     height: 40px
     border: none
@@ -118,6 +160,7 @@ label
   user-select: none
   font-size: 12px
 input
+  background: white
   margin-top: 20px
   border: none
   box-sizing: border-box
@@ -142,4 +185,33 @@ input
   img
     display: block
     width: 100%
+.form__checbox
+  &_text
+    width: 100%
+    display: block
+    font-size: 13px
+.form__check
+  display: block
+  margin-top: 5px
+  margin-right: 5px
+  width: 15px
+  height: 15px
+  border: none
+  outline: none
+.sendAgain
+  margin-top: 160px
+  font-size: 13px
+  margin-bottom: 60px
+  &_send
+    color: $green
+    display: inline
+    cursor: pointer
+    font-weight: 700
+  &_time
+    display: inline
+    color: rgb(180, 185, 203)
+    font-size: 12px
+.inactive
+  pointer-events: none
+  color: rgb(180, 185, 203)
 </style>

@@ -44,7 +44,7 @@
         />
         <label for="password">Пароль</label>
         <small v-if="$v.password.$model && !$v.password.minLength"
-          >Введите пароль длиннее 6-ти символов</small
+          >Ваш пароль длиннее 5-ти символов</small
         >
          <small v-else-if="errorPassword" 
           >Пользователь с такой связкой e-mail и пароля не найден</small
@@ -106,7 +106,7 @@ export default {
   },
   validations: {
     mail: { email, required },
-    password: { minLength: minLength(7), required },
+    password: { minLength: minLength(6), required },
   },
   methods: {
     async submitHandler() {

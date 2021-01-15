@@ -1,6 +1,7 @@
 import firebase from 'firebase/app'
 
 export default{ 
+    
     actions: {
         async login({dispatch, commit}, {email, password}){
             try{
@@ -15,7 +16,7 @@ export default{
         async register({dispatch, commit}, {email, password, name, sername}){
             try{
                 await firebase.auth().createUserWithEmailAndPassword(email, password)
-                const uid = await firebase.auth().currentUser.uid
+                const uid = await dispatch('getUid')
                 await firebase.database().ref(`/users/${uid}/info`).set({
                     name,
                     sername
@@ -24,12 +25,20 @@ export default{
                 throw e
             }
         },
-        async resetLogin({dispatch, commit}, {email}){
+        async sendPasswordResetEmail({dispatch, commit}, {email}){
             try{
-                await firebase.auth().generatePasswordResetLink(email)
+                var actionCodeSettings = {
+                    url: "http://localhost:8080"
+                }
+                await firebase.auth().sendPasswordResetEmail(email, actionCodeSettings)
             }catch(e){
                 throw e
             }
+        },
+        getUid(){
+            const user = firebase.auth().currentUser
+            return user ? user.uid : null
         }
+
     }
 }

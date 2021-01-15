@@ -17,6 +17,10 @@ const routes = [{
       {
         path: '/auth/reset',
         component: () => import('../components/ResetLogin.vue')
+      },
+      {
+        path: '/auth/reset-success/*',
+        component: () => import('../components/ResetSend.vue')
       }
     ]
   },

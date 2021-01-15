@@ -7,12 +7,18 @@
           type="mail"
           name="mail"
           id="mail"
+          @input="
+            mailError = false;
+            mailErrorNot = false;
+          "
           :class="[
             { input__focus: focusMail || mail },
             {
               invalid:
                 ($v.mail.$dirty && !$v.mail.required) ||
-                ($v.mail.$model && !$v.mail.email),
+                ($v.mail.$model && !$v.mail.email) ||
+                mailError ||
+                mailErrorNot,
             },
           ]"
           @focus="focusMail = true"
@@ -23,8 +29,10 @@
         <small v-if="$v.mail.$model && !$v.mail.email"
           >Неверный формат e-mail</small
         >
+        <small v-if="mailError">Слишком много попыток, попробуйте позже</small>
+        <small v-if="mailErrorNot">Пользователь с таким e-mail не существует</small>
       </div>
-      <div class="form__subheader">
+      <div class="form__subheader" >
         На ваш e-mail будут отправлены инструкции для восстановления пароля.
       </div>
       <button
@@ -51,6 +59,8 @@ export default {
     return {
       focusMail: false,
       mail: "",
+      mailError: false,
+      mailErrorNot: false,
     };
   },
   validations: { mail: { email, required } },
@@ -64,9 +74,19 @@ export default {
         email: this.mail,
       };
       try {
-        await this.$store.dispatch("resetLogin", formData);
-        this.$router.push("/");
-      } catch (e) {console.log(e)}
+        localStorage.resetemail = this.mail
+        await this.$store.dispatch("sendPasswordResetEmail", formData);
+        this.$router.push('/auth/reset-success/')
+      } catch (e) {
+        const d = e.code.split("/")[1];
+        if (d == "too-many-requests") {
+          this.mailError = true;
+        } else {
+          if (d == "user-not-found") {
+            this.mailErrorNot = true;
+          }
+        }
+      }
     },
   },
 };
