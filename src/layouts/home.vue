@@ -1,7 +1,9 @@
 <template>
   <div class="home">
+    <div class="container">
      <HorizontalHedaer></HorizontalHedaer>
       <router-view/>
+    </div>
 </div>
 </template>
 

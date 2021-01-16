@@ -6,6 +6,7 @@ const routes = [
     path: '/auth',
     name: 'auth',
     component: () => import('../layouts/auth.vue'),
+    redirect: '/auth/sign-in',
     children: [{
         path: '/auth/sign-in',
         component: () => import('../components/login/Login.vue')
@@ -50,7 +51,7 @@ const routes = [
   },
   {
     path: '/app',
-    component: () => import('../layouts/app.vue')
+    component: () => import('../layouts/appMain.vue')
   },
   {
     path: '/:randomSearchName(.*)',
