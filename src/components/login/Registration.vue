@@ -90,13 +90,13 @@
           <img
             v-if="show"
             v-on:click="show = !show"
-            src="../assets/img/icons/hide.svg"
+            src="../../assets/img/icons/hide.svg"
             class="invert_5"
             alt="hide"
           /><img
             v-if="!show"
             v-on:click="show = !show"
-            src="../assets/img/icons/show.svg"
+            src="../../assets/img/icons/show.svg"
             class="invert_5"
             alt="show"
           />
@@ -181,7 +181,7 @@ export default {
       };
       try {
         await this.$store.dispatch("register", formData);
-        this.$router.push("/");
+        this.$router.push("/app");
       } catch (e) {
         this.emailError = true;
       }

@@ -34,7 +34,8 @@
             {
               invalid:
                 ($v.password.$dirty && !$v.password.required) ||
-                ($v.password.$model && !$v.password.minLength) || errorPassword,
+                ($v.password.$model && !$v.password.minLength) ||
+                errorPassword,
             },
           ]"
           @input="errorPassword = false"
@@ -46,21 +47,21 @@
         <small v-if="$v.password.$model && !$v.password.minLength"
           >Ваш пароль длиннее 5-ти символов</small
         >
-         <small v-else-if="errorPassword" 
+        <small v-else-if="errorPassword"
           >Пользователь с такой связкой e-mail и пароля не найден</small
         >
-        
+
         <div class="ShowHide">
           <img
             v-if="show"
             v-on:click="show = !show"
-            src="../assets/img/icons/hide.svg"
+            src="../../assets/img/icons/hide.svg"
             class="invert_5"
             alt="hide"
           /><img
             v-if="!show"
             v-on:click="show = !show"
-            src="../assets/img/icons/show.svg"
+            src="../../assets/img/icons/show.svg"
             class="invert_5"
             alt="show"
           />
@@ -101,7 +102,7 @@ export default {
       mail: "",
       password: "",
       show: false,
-      errorPassword: false
+      errorPassword: false,
     };
   },
   validations: {
@@ -121,9 +122,9 @@ export default {
       };
       try {
         await this.$store.dispatch("login", formData);
-        this.$router.push("/");
-      } catch(e){
-        this.errorPassword = true
+        this.$router.push("/app");
+      } catch (e) {
+        this.errorPassword = true;
       }
     },
   },

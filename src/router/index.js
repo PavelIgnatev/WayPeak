@@ -1,36 +1,56 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
-const routes = [{
+const routes = [
+  {
     path: '/auth',
     name: 'auth',
-    redirect: '/auth/sign-in',
-    component: () => import('../views/auth.vue'),
+    component: () => import('../layouts/auth.vue'),
     children: [{
         path: '/auth/sign-in',
-        component: () => import('../components/Login.vue')
+        component: () => import('../components/login/Login.vue')
       },
       {
         path: '/auth/registration',
-        component: () => import('../components/Registration.vue')
+        component: () => import('../components/login/Registration.vue')
       },
       {
         path: '/auth/reset',
-        component: () => import('../components/ResetLogin.vue')
+        component: () => import('../components/login/ResetLogin.vue')
       },
       {
-        path: '/auth/reset-success/*',
-        component: () => import('../components/ResetSend.vue')
+        path: '/auth/reset-success',
+        component: () => import('../components/login/ResetSend.vue')
       }
     ]
   },
   {
     path: '/',
-    component: () => import('../views/Home.vue')
+    name: 'home',
+    component: () => import('../layouts/home.vue'),
+    children: [
+    {
+      path: '/company',
+      component: () => import('../views/PageNotFound.vue')
+    },
+    {
+      path: '/about',
+      component: () => import('../components/home/about.vue')
+    },
+    {
+      path: '/support',
+      component: () => import('../components/home/support.vue')
+    },
+    {
+      path:'/media',
+      component: () => import('../components/home/media.vue')
+    }
+    
+  ]
   },
   {
-    path: '/wayPeak',
-    component: () => import('../views/wayPeak.vue')
+    path: '/app',
+    component: () => import('../layouts/app.vue')
   },
   {
     path: '/:randomSearchName(.*)',

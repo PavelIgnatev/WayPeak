@@ -1,18 +1,18 @@
 <template >
-  <header class="HorizontalHeader" v-if="!$route.path.includes('/auth')">
+  <header class="HorizontalHeader" >
     <nav class="HorizontalHeader__nav">
       <router-link to="/" class="HorizontalHeader__icon"
         >Way<span>Peak</span></router-link
       >
       <div class="HorizontalHeader__wrapper">
-        <router-link to="/wayPeak" class="HorizontalHeader__link"
+        <router-link to="/about" class="HorizontalHeader__link"
           >О WayPeak
         </router-link>
-        <router-link to="/company" class="HorizontalHeader__link"
-          >О продукте
-        </router-link>
-        <router-link to="/company" class="HorizontalHeader__link"
+         <router-link to="/media" class="HorizontalHeader__link"
           >Журнал
+        </router-link>
+        <router-link to="/support" class="HorizontalHeader__link"
+          >Поддержка
         </router-link>
         <router-link
           to="/auth/sign-in"
@@ -56,7 +56,7 @@ export default {
 };
 </script>
 <style lang="sass">
-@import '../assets/sass/_variables'
+@import '@/assets/sass/_variables'
 .HorizontalHeader
     height: 120px
     width: 100%
@@ -95,11 +95,11 @@ export default {
         display: flex
         span
             content: ''
-            width: 23px
+            width: 18px
             z-index: 1000
             background-color: $black
             transition: 0.2s ease-in-out
-            mask: url('../assets/img/icons/login.svg') no-repeat center / contain
+            mask: url('../../assets/img/icons/login.svg') no-repeat center / contain
         .green
             transition: 0.2s ease-in-out
             background-color: $green

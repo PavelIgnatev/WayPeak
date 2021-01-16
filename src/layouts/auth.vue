@@ -1,9 +1,7 @@
 <template >
   <div class="auth">
     <div class="Login__icon">
-      <router-link to="/" class="HorizontalHeader__icon"
-        >Way<span>Peak</span></router-link
-      >
+      <router-link to="/" class="">Way<span>Peak</span></router-link>
     </div>
     <router-view></router-view>
   </div>
@@ -18,6 +16,14 @@ export default {
 @import '../assets/sass/_variables'
 .Login
   &__icon
+    text-align: center
+    color: $black
+    font-size: 30px
+    span
+      color: $green
+    a
+      color: $black
+      font-size: 30px
     margin-top: 64px
     margin-bottom: 64px
 .form
@@ -70,7 +76,7 @@ export default {
       height: 1px
       background: white
       transform: rotate(40deg)
-    &::before 
+    &::before
       content: ''
       position: absolute
       top: 5.5px
