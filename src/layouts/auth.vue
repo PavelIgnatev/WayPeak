@@ -17,7 +17,7 @@ export default {
 .Login
   &__icon
     text-align: center
-    color: $black
+    color: black
     font-size: 30px
     span
       color: $green
@@ -45,6 +45,7 @@ export default {
     height: 390px
     padding: 52px 76px 36px 76px
     background: $white
+    color: $black
     margin: 0 auto
   &__text
     letter-spacing: -0.5px

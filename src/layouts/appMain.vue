@@ -27,7 +27,7 @@ export default {
   beforeCreate() {
     setTimeout(() => {
       this.loading = false;
-    }, 2500);
+    }, 1500);
   },
   async mounted() {
     if (!Object.keys(this.$store.getters.info).length) {

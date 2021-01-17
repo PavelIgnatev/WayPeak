@@ -5,7 +5,7 @@
         >Way<span>Peak</span></router-link
       >
       <div class="HorizontalHeader__wrapper">
-        <router-link to="/about" class="HorizontalHeader__link"
+        <router-link to="/app" class="HorizontalHeader__link"
           >О WayPeak
         </router-link>
          <router-link to="/media" class="HorizontalHeader__link"
@@ -50,7 +50,6 @@ export default {
   methods: {
     async quit() {
       await this.$store.dispatch("logout");
-      this.$router.push("/auth");
     },
   }
 };
@@ -61,7 +60,7 @@ export default {
     height: 120px
     width: 100%
     background: $white
-    color: $black
+    color: black
     display: flex
     align-items: center
     &__wrapper
@@ -73,7 +72,7 @@ export default {
         width: 100%
         height: 50px
     &__icon
-        color: $black
+        color: black
         font-size: 30px
         display: flex
         justify-content: center
@@ -83,7 +82,7 @@ export default {
     &__link
         transition: 0.2s ease-in-out
         font-size: 18px
-        color: $black
+        color: black
         margin-right: 32px
         &:hover
             color: $green
@@ -97,7 +96,7 @@ export default {
             content: ''
             width: 18px
             z-index: 1000
-            background-color: $black
+            background-color: black
             transition: 0.2s ease-in-out
             mask: url('../../assets/img/icons/login.svg') no-repeat center / contain
         .green
