@@ -14,6 +14,14 @@
     src: url('../fonts/Graphik-Bold.ttf') format('truetype')
     font-weight: 700
     font-style: normal
+
+
+*
+    &:focus, &:active
+        border: 0
+        outline: none
+        text-decoration:underline
+    border: 0
 html
     font-family: 'Graphik', sans-serif
     font-weight: 400
@@ -40,10 +48,10 @@ article > * + *
     margin-top: 1em
 input, button, textarea, select
     font: inherit
-    &:focus, &:active
-        outline: none
+    background: white
 a
     text-decoration: none
+    
 .invert_5
     filter: invert(0.5)
 .invert_1

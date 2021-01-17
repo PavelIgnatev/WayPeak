@@ -5,25 +5,30 @@ export default {
         info: {}
     },
     mutations: {
-        setInfo(state, info){
+        setInfo(state, info) {
             state.info = info
         },
-        clearState(state){
+        clearInfo(state) {
             state.info = {}
         }
     },
     actions: {
-        async fetchInfo({dispatch, commit}){
-            try{
+        async fetchInfo({
+            dispatch,
+            commit
+        }) {
+            try {
                 const uid = await dispatch('getUid')
                 const info = (await firebase.database().ref(`/users/${uid}/info`).once('value')).val()
-            commit('setInfo', info)
-            }catch(e){
-     
+                commit('setInfo', info)
+            } catch (e) {
+
             }
         }
     },
-    getters:{
-        info(state) {return state.info}
+    getters: {
+        info(state) {
+            return state.info
+        }
     }
 }

@@ -63,6 +63,7 @@ export default {
     color: black
     display: flex
     align-items: center
+    
     &__wrapper
         display: flex
     &__nav

@@ -68,7 +68,7 @@
       <div class="form__password">
         <input
           :type="show ? 'text' : 'password'"
-          name="password"
+          name="passwordReg"
           id="password"
           :class="[
             { input__focus: focusPass || password },

@@ -10,40 +10,32 @@
         "
       ></Plane>
     </div>
-    Имя: {{ name }} <br />
-    Фамилия: {{ sername }}
+    <AppHeader></AppHeader>
     <router-view></router-view>
   </div>
 </template>
 <script>
 import { Plane } from "vue-loading-spinner";
+import AppHeader from "../components/appheader/appHedaer";
 export default {
   name: "app",
+
   data() {
     return {
       loading: true,
     };
   },
-  beforeCreate() {
+
+  mounted() {
     setTimeout(() => {
       this.loading = false;
     }, 1500);
   },
-  async mounted() {
-    if (!Object.keys(this.$store.getters.info).length) {
-      await this.$store.dispatch("fetchInfo");
-    }
-  },
-  computed: {
-    name() {
-      return this.$store.getters.info.name;
-    },
-    sername() {
-      return this.$store.getters.info.sername;
-    },
-  },
+
+  
   components: {
     Plane,
+    AppHeader
   },
 };
 </script>
