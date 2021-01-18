@@ -20,7 +20,6 @@
     &:focus, &:active
         border: 0
         outline: none
-        text-decoration:underline
     border: 0
 html
     font-family: 'Graphik', sans-serif
@@ -51,8 +50,26 @@ input, button, textarea, select
     background: white
 a
     text-decoration: none
-    
+.invert_8
+    filter: invert(0.8)    
+.invert_7
+    filter: invert(0.7)    
+.invert_6
+    filter: invert(0.6)
 .invert_5
     filter: invert(0.5)
 .invert_1
     filter: invert(1)
+
+::-webkit-scrollbar-track
+    margin-bottom: 30px
+    background-color: white
+::-webkit-scrollbar-thumb
+    background-color: white
+    border-radius: 45px
+::-webkit-scrollbar
+    width: 4px
+.appHeader__wrapper
+    &:hover
+        &::-webkit-scrollbar-thumb
+            background-color: rgb(153,153,153)

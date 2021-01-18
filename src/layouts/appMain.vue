@@ -16,7 +16,7 @@
 </template>
 <script>
 import { Plane } from "vue-loading-spinner";
-import AppHeader from "../components/appheader/appHedaer";
+import AppHeader from "../components/appheader/AppHeader";
 export default {
   name: "app",
 
@@ -29,7 +29,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.loading = false;
-    }, 1500);
+    }, 500);
   },
 
   
@@ -50,4 +50,7 @@ export default {
   height: 100vh
   background: white
   z-index: 100000
+.appMain
+  overflow: hidden
+  user-select: none
 </style>

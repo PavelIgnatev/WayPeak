@@ -9,7 +9,7 @@
           id="name"
           @focus="focusName = true"
           @blur="focusName = false"
-          v-model="name"
+          v-model.trim="name"
           :class="[
             { input__focus: focusName || name },
             {
@@ -27,7 +27,7 @@
           id="sername"
           @focus="focusSername = true"
           @blur="focusSername = false"
-          v-model="Sername"
+          v-model.trim="Sername"
           :class="[
             { input__focus: focusSername || Sername },
             {
@@ -55,7 +55,7 @@
           ]"
           @focus="focusMail = true"
           @blur="focusMail = false"
-          v-model="mail"
+          v-model.trim="mail"
         />
         <label for="mail">Email</label>
         <small v-if="$v.mail.$model && !$v.mail.email"
@@ -80,7 +80,7 @@
           ]"
           @focus="focusPass = true"
           @blur="focusPass = false"
-          v-model="password"
+          v-model.trim="password"
         />
         <label for="password">Пароль</label>
         <small v-if="$v.password.$model && !$v.password.minLength"
@@ -109,7 +109,7 @@
           id='check'
           value=""
           class="form__check"
-          v-model="checked"
+          v-model.trim="checked"
         />
         <label for="check" class="form__checkbox" :class="{form__checkbox_active: checked}" style="display: flex"></label>
         <div class="form__checbox_text">
@@ -173,11 +173,13 @@ export default {
         this.$v.$touch();
         return;
       }
+      let colors = ['#512da8']
       const formData = {
         name: this.name,
         sername: this.Sername,
         email: this.mail,
         password: this.password,
+        backgroundImg: colors[Math.round((Math.random(1) * (colors.length - 1) + 1)) - 1]
       };
       try {
         await this.$store.dispatch("register", formData);

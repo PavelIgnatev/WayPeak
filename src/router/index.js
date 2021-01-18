@@ -29,6 +29,18 @@ const routes = [{
     ]
   },
   {
+    path: '/app',
+    redirect: 'app/all',
+    meta: {
+      layout: 'appMain',
+      auth: true
+    },
+    component: () => import('../layouts/appMain.vue'),
+    children: [{
+      path: '/app/*',
+    }]
+  },
+  {
     path: '/',
     name: 'home',
     component: () => import('../layouts/home.vue'),
@@ -47,21 +59,10 @@ const routes = [{
       {
         path: '/media',
         component: () => import('../components/home/media.vue')
-      }
+      }, 
+      
 
-    ]
-  },
-  {
-    path: '/app',
-    meta: {
-      layout: 'appMain',
-      auth: true
-    },
-    component: () => import('../layouts/appMain.vue')
-  },
-  {
-    path: '/:randomSearchName(.*)',
-    component: () => import('../views/PageNotFound.vue')
+    ],
   }
 ]
 
@@ -71,13 +72,13 @@ const router = new VueRouter({
   routes
 })
 
-router.beforeEach((to, from, next)=>{
+router.beforeEach((to, from, next) => {
   const currentUser = firebase.auth().currentUser
   const requireAuth = to.matched.some(record => record.meta.auth)
 
-  if(requireAuth && !currentUser){
+  if (requireAuth && !currentUser) {
     next('/auth')
-  }else{
+  } else {
     next()
   }
 })
