@@ -1,24 +1,15 @@
 <template >
   <div class="All">
-    <form @submit.prevent="sendDate">
-      <input
-        class="all"
-        type="text"
-        placeholder='Добавьте задачу в "Входящие", нажмите Enter для сохранения'
-        v-model="text"
-      />
-      <input type="submit" style="opacity:0"/>
-      <div
-        class=""
-        v-for="(item, index) in $store.getters.returnInboxPost"
-        :key="index"
-      >
-        {{ item }}
-      </div>
-    </form>
+    <div class="AllLeft">
+      <HeaderGorizontal text='Все'></HeaderGorizontal>
+      <FormSubmit></FormSubmit>
+    </div>
+    <div class="AllRight">2</div>
   </div>
 </template>
 <script>
+import FormSubmit from '../formSbm/FormSubmit'
+import HeaderGorizontal from '../headerGorizontal/HeaderGorizontal.vue'
 export default {
   name: "All",
   data() {
@@ -27,39 +18,33 @@ export default {
       data: [],
     };
   },
-  async mounted() {
-    if (!Object.keys(this.$store.getters.returnInboxPost).length) {
-      await this.$store.dispatch("fetchMess");
-    }
-    console.log(this.$store.getters.info)
-    this.data = this.$store.getters.returnInboxPost;
-  },
-  methods: {
-    async sendDate() {
-      if (this.text) {
-        this.data.unshift(this.text);
-      }
-      const formData = {
-        data: this.data,
-      };
-      try {
-        if (this.data) {
-          this.text = "";
-          await this.$store.dispatch("pushMess", formData);
-        }
-      } catch (e) {
-        console.log(e);
-      }
-    },
-  },
+  
+  components: {HeaderGorizontal, FormSubmit}
 };
 </script>
 <style lang="sass">
+@import '@/assets/sass/_variables'
 .All
-    max-height: 100vh
-.all
-    width: 500px
+  display: flex
+  &Left
+    padding: 0 25px
+    width: 50%
+  &Right
+    width: 50%
+  &__input
+    box-sizing: border-box
+    padding: 0 12px 
+    height: 40px
+    font-size: 14px
+    border: none
+    background: white
+    border-radius: 5px
+    width: 100%
+    color: rgba(0,0,0,.85)
+    &:focus
+      margin-left: -1px
+      border: 1px solid #97ace9
     &::placeholder
-        color: #909090
-        font-size: 14px
+      color: #909090
+      font-size: 13.5px
 </style>

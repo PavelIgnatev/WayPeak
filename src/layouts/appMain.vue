@@ -11,7 +11,7 @@
       ></Plane>
     </div>
     <AppHeader></AppHeader>
-    <router-view style="width: calc(100vw - 260px);box-sizing: border-box"></router-view>
+    <router-view style="width: calc(100vw - 260px);box-sizing: border-box;max-height: 100vh"></router-view>
   </div>
 </template>
 <script>
@@ -29,7 +29,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.loading = false;
-    }, 1500);
+    }, 2500);
   },
 
   
