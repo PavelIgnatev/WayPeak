@@ -37,8 +37,37 @@ const routes = [{
     },
     component: () => import('../layouts/appMain.vue'),
     children: [{
-      path: '/app/*',
-    }]
+        path: '/app/all',
+        component: () => import('../components/app/All.vue')
+      },
+      {
+        path: '/app/completed',
+        component: () => import('../components/app/Comlit.vue')
+      },
+      {
+        path: '/app/inbox',
+        component: () => import('../components/app/Inbox.vue')
+      },
+      {
+        path: '/app/today',
+        component: () => import('../components/app/Today.vue')
+      },
+      {
+        path: '/app/tomorrow',
+        component: () => import('../components/app/Tommorow.vue')
+      },
+      {
+        path: '/app/trash',
+        component: () => import('../components/app/Trash.vue')
+      },
+      {
+        path: '/app/week',
+        component: () => import('../components/app/Week.vue')
+      },
+      {
+        path: '/app/*',
+      }
+    ]
   },
   {
     path: '/',
@@ -59,9 +88,11 @@ const routes = [{
       {
         path: '/media',
         component: () => import('../components/home/media.vue')
-      }, 
-      
-
+      },
+      {
+        path: '/*',
+        component: () => import('../views/PageNotFound.vue')
+      }
     ],
   }
 ]

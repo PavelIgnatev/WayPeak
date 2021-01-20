@@ -11,7 +11,7 @@
       ></Plane>
     </div>
     <AppHeader></AppHeader>
-    <router-view></router-view>
+    <router-view style="width: calc(100vw - 260px);box-sizing: border-box"></router-view>
   </div>
 </template>
 <script>
@@ -29,7 +29,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.loading = false;
-    }, 500);
+    }, 1500);
   },
 
   
@@ -53,4 +53,5 @@ export default {
 .appMain
   overflow: hidden
   user-select: none
+  display: flex
 </style>

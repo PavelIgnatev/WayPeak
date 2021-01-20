@@ -28,14 +28,7 @@ export default{
                 await firebase.database().ref(`/users/${uid}/info`).set({
                     name,
                     sername,
-                    backgroundImg,
-                    headeritem: [
-                        {
-                            src: ''
-                        }
-                    ]
-
-                    
+                    backgroundImg, 
                 })
             } catch(e){
                 throw e

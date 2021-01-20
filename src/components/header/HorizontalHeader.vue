@@ -33,9 +33,7 @@
           </p>
         </router-link>
       </div>
-      <button @click.prevent:="quit" style="position: absolute; top: 400px">
-        выйтиии
-      </button>
+  
     </nav>
   </header>
 </template>
@@ -46,11 +44,6 @@ export default {
     return {
       green: !true,
     };
-  },
-  methods: {
-    async quit() {
-      await this.$store.dispatch("logout");
-    },
   }
 };
 </script>

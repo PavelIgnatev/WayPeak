@@ -1,21 +1,39 @@
 <template >
-  <header class="appHeader">
+  <header class="appHeader" v-if="!this.$route.path.includes('/app/q')">
     <div class="appHeader__header">
       <div
         class="appHeader__header__icon"
         :style="`background: ${backgroundImg}`"
+        @click="ModalActive = true"
       >
         <p>{{ name ? name.split("")[0] : "" }}</p>
       </div>
-      <div class="appHeader__header__nameandsername">
-        {{ name }} {{ sername }}
+      <div
+        class="appHeader__header__nameandsername"
+        @click="ModalActive = true"
+      >
+        {{ name }} {{ sername }}  
       </div>
       <div class="appHeader__header__search">
         <img
           src="@/assets/img/icons/search.svg"
           alt="search"
           class="invert_6"
+          @click="InputActive = true"
         />
+        <div class="appHeader__input" v-if="InputActive">
+          <input
+            type="text"
+            placeholder="Поиск"
+            class="appHeader__input_search"
+            v-model="search"
+          />
+          <div
+            class="appHeader__input__rgba"
+            @click="InputActive = false"
+          ></div>
+          <div class="appHeader__input_times" @click="search = ''">&times;</div>
+        </div>
       </div>
       <div class="appHeader__header__bell">
         <img src="@/assets/img/icons/bell.svg" alt="bell" class="invert_6" />
@@ -24,63 +42,66 @@
     <div class="appHeader__wrapper">
       <div class="appHeaderItem">
         <AppHeaderItem
-          title="Все"
-          src="assets/img/icons/grid.svg"
-          classImg="invert_7"
-          :active="$route.path.includes('/app/all') ? true : false"
-          to="/app/all"
-        ></AppHeaderItem>
-        <AppHeaderItem
-          title="Входящие"
-          src="assets/img/icons/inbox.svg"
-          classImg="invert_7"
-          :active="$route.path.includes('/app/inbox') ? true : false"
-          to="/app/inbox"
-        ></AppHeaderItem>
-        <AppHeaderItem
-          title="Сегодня"
-          classImg="invert_7"
-          src="assets/img/icons/today.svg"
-          :active="$route.path.includes('/app/today') ? true : false"
-          to="/app/today"
-        ></AppHeaderItem>
-        <AppHeaderItem
-          title="Завтра"
-          classImg="invert_7"
-          src="assets/img/icons/today.svg"
-          :active="$route.path.includes('/app/tomorrow') ? true : false"
-          to="/app/tomorrow"
-        ></AppHeaderItem>
-        <AppHeaderItem
-          title="Следующая неделя"
-          classImg="invert_7"
-          src="assets/img/icons/week.svg"
-          :active="$route.path.includes('/app/week') ? true : false"
-          to="/app/week"
+          v-for="item in this.$store.getters.returnHeaderItem"
+          :key="item.title"
+          :title="item.title"
+          :active="item.active"
+          :src="item.src"
+          :classImg="item.classImg"
+          :to="item.to"
         ></AppHeaderItem>
         <AppHeaderTabs></AppHeaderTabs>
         <div class="line"></div>
         <AppHeaderItem
-          title="Выполнено"
-          classImg="invert_7"
-          src="assets/img/icons/check.svg"
-          :active="$route.path.includes('/app/completed') ? true : false"
-          to="/app/completed"
-        ></AppHeaderItem>
-        <AppHeaderItem
-          title="Корзина"
-          classImg="invert_7"
-          src="assets/img/icons/delete.svg"
-          :active="$route.path.includes('/app/trash') ? true : false"
-          to="/app/trash"
+          v-for="item in this.$store.getters.returnToHeaderItem"
+          :key="item.title"
+          :title="item.title"
+          :src="item.src"
+          :classImg="item.classImg"
+          :to="item.to"
         ></AppHeaderItem>
       </div>
+    </div>
+    <div class="appHeader__setting" v-if="ModalActive">
+      <div class="appHeader__setting__wrapper" @click="ModalActive = true">
+        <nav>
+          <ul class="appHeader__setting__menu">
+            <AppSetting
+              v-for="item in this.$store.getters.returnSettingMenu"
+              :key="item.text"
+              :text="item.text"
+              :to="item.to"
+            ></AppSetting>
+            <div class="line"></div>
+            <AppSetting
+              v-for="item in this.$store.getters.returnToSettingMenu"
+              :key="item.text"
+              :text="item.text"
+              :to="item.to"
+            ></AppSetting>
+            <div class="line"></div>
+            <li class="AppSetting">
+              <router-link
+                to="/"
+                class="AppSetting_a"
+                style="margin: 0; padding: 0"
+                ><button @click.prevent:="quit" class="AppSetting_button">
+                  Выйти
+                </button></router-link
+              >
+            </li>
+            <div class="line" style="margin-bottom: 0px"></div>
+          </ul>
+        </nav>
+      </div>
+      <div class="appHeader__setting__rgba" @click="ModalActive = false"></div>
     </div>
   </header>
 </template>
 <script>
 import AppHeaderItem from "./AppHeaderItem";
 import AppHeaderTabs from "./AppHeaderTabs";
+import AppSetting from "./AppSetting";
 export default {
   name: "AppHeader",
   async mounted() {
@@ -102,12 +123,21 @@ export default {
   data() {
     return {
       inputActive: false,
-      item: 5,
+
+      ModalActive: false,
+      InputActive: false,
+      search: "",
     };
   },
   components: {
     AppHeaderItem,
-    AppHeaderTabs
+    AppHeaderTabs,
+    AppSetting,
+  },
+  methods: {
+    async quit() {
+      await this.$store.dispatch("logout");
+    },
   },
 };
 </script>
@@ -119,12 +149,80 @@ export default {
   height: 100vh
   box-sizing: border-box
   border-right: 1px solid rgba(0,0,0,.15)
+  &__input
+    position: absolute
+    width: 260px
+    height: 64px
+    background: white
+    top: 0
+    left: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    z-index: 100
+    &_times
+      font-size: 22px
+      color: #909090
+      position: absolute
+      right: 25px
+      cursor: pointer
+      z-index: 1000002
+    &_search
+      box-sizing: border-box
+      color: rgba(0,0,0,.85)
+      width: 220px
+      height: 36px
+      font-size: 16px
+      z-index: 1000001
+      padding-right: 20px
+      &::placeholder
+        color: #909090
+        font-size: 14px
+    &__rgba
+      background: rgba(0,0,0,0)
+      position: absolute
+      top: 0
+      left: 0
+      z-index: -1
+      width: 100vw
+      height: 100vh
+  &__setting
+    width: 100vw
+    top: 0
+    left: 0
+    height: 100vh
+    z-index: 1000
+    background: rgba(0,0,0,0)
+    position: absolute
+    &__wrapper
+      padding: 5px 0
+      width: 185px
+      min-height: 200px
+      background: white
+      z-index: 1001
+      margin-left: 20px
+      margin-top: 50px
+      box-shadow: 0 2px 11px 0 rgba(0,0,0,.3)
+      border-radius: 4px
+    &__rgba
+      background: rgba(0,0,0,0)
+      position: absolute
+      top: 0
+      left: 0
+      z-index: -1
+      width: 100vw
+      height: 100vh
   &__header
     height: 64px
     width: 230px
     display: flex
     align-items: center
     margin: 0 auto
+    &__input
+      position: absolute
+      left: 0
+      width: 205px
+      height: 30px
     &__search
       margin-right: 15px
     &__icon
@@ -147,6 +245,7 @@ export default {
       &:hover
         filter: invert(0.4)
     &__nameandsername
+      cursor: pointer
       margin-left: 8px
       white-space: nowrap
       overflow: hidden

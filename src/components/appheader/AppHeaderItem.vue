@@ -1,10 +1,14 @@
 <template >
-  <router-link :to="to" class="appHeader__item" :class="active ? 'activeItem' : ''">
+  <router-link
+    :to="to"
+    class="appHeader__item"
+    :class="$route.path.includes(to) && to ? 'activeItem' : ''"
+  >
     <div class="appHeader_block">
       <img
         :src="require(`@/${src}`)"
         class="appHeader__img invert_7"
-        :class="{ invert_5: active }"
+        :class="{ invert_5: $route.path.includes(to) && to }"
       />
       <div class="date">{{ day }}</div>
     </div>
