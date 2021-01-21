@@ -3,23 +3,34 @@
     <div class="AllLeft">
       <HeaderGorizontal text='Все'></HeaderGorizontal>
       <FormSubmit></FormSubmit>
+      <div class="All__wrapper">
+        <Item
+          class="All__item"
+          v-for="(item, index) in $store.getters.returnInboxPost"
+          :key="index"
+          :keyy="index"
+          :item="item.text"
+        >
+        </Item>
+      </div>
     </div>
-    <div class="AllRight">2</div>
+    <div class="AllRight"><HeaderRight></HeaderRight></div>
   </div>
 </template>
 <script>
+import Item from "../Item/Item";
 import FormSubmit from '../formSbm/FormSubmit'
 import HeaderGorizontal from '../headerGorizontal/HeaderGorizontal.vue'
+import HeaderRight from '../headerRight/headerRight'
 export default {
   name: "All",
   data() {
     return {
       text: "",
-      data: [],
     };
   },
   
-  components: {HeaderGorizontal, FormSubmit}
+  components: {HeaderGorizontal, FormSubmit, HeaderRight, Item}
 };
 </script>
 <style lang="sass">
@@ -31,9 +42,12 @@ export default {
   width: 100%
   &Left
     padding: 0 25px
-    width: 60%
+    width: 100%
+    min-width: 700px  
   &Right 
-    width: 40%
+    max-width: 400px
+    min-width: 400px
+
   &__input
     box-sizing: border-box
     padding: 0 12px 

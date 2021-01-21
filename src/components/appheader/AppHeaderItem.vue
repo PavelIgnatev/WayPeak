@@ -13,7 +13,7 @@
       <div class="date">{{ day }}</div>
     </div>
     <div class="appHeader__text">
-      {{ title }} <span v-if="title == 'Все' || title == 'Входящие'">{{$store.getters.returnInboxPostLength}}</span>
+      {{ title }} <span v-if="($store.getters.returnInboxPostLength && (title == 'Все' || title == 'Входящие'))">{{$store.getters.returnInboxPostLength}}</span>
     </div>
   </router-link>
 </template>

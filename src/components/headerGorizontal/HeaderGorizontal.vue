@@ -1,13 +1,18 @@
 <template >
     <header class="HeaderGorizontal">
-        <img src="../../assets/img/icons/menu.svg" class='HeaderGorizontal__img'>
+        <img src="../../assets/img/icons/menu.svg" class='HeaderGorizontal__img' @click="notActive">
         <div class="HeaderGorizontal__text">{{text}}</div>
     </header>
 </template>
 <script>
 export default {
     name: 'HeaderGorizontal',
-    props: ['text']
+    props: ['text'],
+    methods: {
+        notActive(){
+            this.$store.commit('nothamburger')
+        }
+    },
 }
 </script>
 <style lang="sass">

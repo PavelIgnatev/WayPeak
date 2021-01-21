@@ -10,7 +10,7 @@ export default{
             return state.InboxPost
         },
         returnInboxPostLength(state){
-            return state.InboxPost.length
+            return Object.keys(state.InboxPost).length
         }
     },  
     mutations:{
@@ -19,13 +19,13 @@ export default{
         }
     },
     actions:{
-        async pushMess({dispatch, commit}, {data}){
+        async pushMess({dispatch, commit}, {text}){
             try{
                 const uid = await dispatch('getUid')
-                await firebase.database().ref(`/users/${uid}/data`).set({
-                    data    
+                await firebase.database().ref(`/users/${uid}/data`).push({
+                    text
                 })
-                commit('sendMess', data)
+                dispatch('fetchMess')
             } catch(e){
                 throw e
             }
@@ -33,9 +33,19 @@ export default{
         async fetchMess({dispatch, commit}){
             try {
                 const uid = await dispatch('getUid')
-                const data = (await firebase.database().ref(`/users/${uid}/data/data`).once('value')).val() || []
+                const data = (await firebase.database().ref(`/users/${uid}/data`).once('value')).val() || {}
                 commit('sendMess', data)
             } catch (e) {
+            }
+        },
+        async deleteMess({dispatch, commit}, {id}){
+            try {
+                const uid = await dispatch('getUid')
+                const data = (await firebase.database().ref(`/users/${uid}/data/${id}`).remove())
+                dispatch('fetchMess')
+
+            } catch (e) {
+                throw(e)
             }
         }
     }

@@ -1,5 +1,5 @@
 <template >
-  <header class="appHeader" v-if="!this.$route.path.includes('/app/q')">
+  <header class="appHeader" v-if="!this.$route.path.includes('/app/q') && $store.getters.returnHamburgerMenu" >
     <div class="appHeader__header">
       <div
         class="appHeader__header__icon"
@@ -145,8 +145,8 @@ export default {
 .appHeader
   color: $black
   width: 260px
-  padding: 0 15px
   height: 100vh
+  transition: 0.2s all
   box-sizing: border-box
   border-right: 1px solid rgba(0,0,0,.15)
   &__input
@@ -213,6 +213,7 @@ export default {
       width: 100vw
       height: 100vh
   &__header
+    padding: 0 15px
     height: 64px
     width: 230px
     display: flex

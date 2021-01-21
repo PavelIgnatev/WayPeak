@@ -11,7 +11,7 @@
       ></Plane>
     </div>
     <AppHeader></AppHeader>
-    <router-view style="box-sizing: border-box"></router-view>
+    <router-view style="box-sizing: border-box" ></router-view>
   </div>
 </template>
 <script>
