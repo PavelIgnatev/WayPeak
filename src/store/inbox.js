@@ -8,6 +8,9 @@ export default{
     getters: {
         returnInboxPost(state){
             return state.InboxPost
+        },
+        returnInboxPostLength(state){
+            return state.InboxPost.length
         }
     },  
     mutations:{

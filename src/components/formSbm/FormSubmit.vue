@@ -68,6 +68,7 @@ export default {
     &__wrapper
         margin: 0
         padding: 0
+        margin-top: 15px
         height: calc(100vh - 64px)
         overflow: auto
 </style>

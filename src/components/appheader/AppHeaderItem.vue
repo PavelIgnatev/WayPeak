@@ -13,7 +13,7 @@
       <div class="date">{{ day }}</div>
     </div>
     <div class="appHeader__text">
-      {{ title }}
+      {{ title }} <span v-if="title == 'Все' || title == 'Входящие'">{{$store.getters.returnInboxPostLength}}</span>
     </div>
   </router-link>
 </template>
@@ -69,4 +69,10 @@ export default {
   &__text
     margin-top: 2px
     margin-left: 2px
+    span
+      position: absolute
+      left: 220px
+      font-size: 12px
+      font-weight: 400
+      color: #707070
 </style>

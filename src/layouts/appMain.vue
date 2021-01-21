@@ -11,7 +11,7 @@
       ></Plane>
     </div>
     <AppHeader></AppHeader>
-    <router-view style="width: calc(100vw - 260px);box-sizing: border-box;max-height: 100vh"></router-view>
+    <router-view style="box-sizing: border-box"></router-view>
   </div>
 </template>
 <script>

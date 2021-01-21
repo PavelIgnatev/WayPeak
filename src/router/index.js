@@ -38,7 +38,8 @@ const routes = [{
     component: () => import('../layouts/appMain.vue'),
     children: [{
         path: '/app/all',
-        component: () => import('../components/app/All.vue')
+        component: () => import('../components/app/All.vue'),
+        children: [{path:'/app/all/:id'}]
       },
       {
         path: '/app/completed',

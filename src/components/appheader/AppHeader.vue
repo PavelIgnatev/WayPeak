@@ -123,7 +123,6 @@ export default {
   data() {
     return {
       inputActive: false,
-
       ModalActive: false,
       InputActive: false,
       search: "",
@@ -146,6 +145,7 @@ export default {
 .appHeader
   color: $black
   width: 260px
+  padding: 0 15px
   height: 100vh
   box-sizing: border-box
   border-right: 1px solid rgba(0,0,0,.15)
@@ -265,6 +265,8 @@ export default {
     background-color: rgba(75,111,222,.2)
     font-weight: 700
     font-size: 13.5px
+    span
+      color: black
   .line
     margin: 5px 0
     border-bottom: 1px solid rgba(0,0,0,.1)

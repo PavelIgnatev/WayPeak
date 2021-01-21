@@ -153,29 +153,29 @@ export default {
         color: rgba(0,0,0,.9)
         &::after
           background: black
-label
-  transition: 0.3s ease-in-out
-  position: absolute
-  left: 0
-  bottom: 0
-.input__focus
-  border-bottom: 2px solid $twogreen !important
-.input__focus + label, input:invalid + label
-  transition: 0.3s ease-in-out
-  bottom: 20px
-  font-size: 12px
-input
-  background: white
-  margin-top: 20px
-  border: none
-  box-sizing: border-box
-  margin: 0
-  padding: 0
-  width: 100%
-  height: 20px
-  border-bottom: 1px solid rgba(0,0,0,0.25)
-  &:hover
-    border-bottom: 1px solid $twogreen
+  label
+    transition: 0.3s ease-in-out
+    position: absolute
+    left: 0
+    bottom: 0
+  .input__focus
+    border-bottom: 2px solid $twogreen !important
+  .input__focus + label, input:invalid + label
+    transition: 0.3s ease-in-out
+    bottom: 20px
+    font-size: 12px
+  input
+    background: white
+    margin-top: 20px
+    border: none
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+    width: 100%
+    height: 20px
+    border-bottom: 1px solid rgba(0,0,0,0.25)
+    &:hover
+      border-bottom: 1px solid $twogreen
 .invalid
   border-bottom: 2px solid red !important
 .ShowHide

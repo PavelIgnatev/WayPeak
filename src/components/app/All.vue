@@ -26,17 +26,20 @@ export default {
 @import '@/assets/sass/_variables'
 .All
   display: flex
+  overflow: hidden
+  max-height: 100vh
+  width: 100%
   &Left
     padding: 0 25px
-    width: 50%
-  &Right
-    width: 50%
+    width: 60%
+  &Right 
+    width: 40%
   &__input
     box-sizing: border-box
     padding: 0 12px 
     height: 40px
     font-size: 14px
-    border: none
+    border: none  
     background: white
     border-radius: 5px
     width: 100%
