@@ -2,14 +2,18 @@
   <div class="All">
     <div class="AllLeft">
       <HeaderGorizontal text='Выполнено'></HeaderGorizontal>
-      <Item
-          class="All__item"
+      <div class="All__wrapper">
+        <Item
           v-for="(item, index) in $store.getters.returnPerformedPost"
           :key="index"
           :keyy="index"
           :item="item.text"
+          push='pushMess'
+          del='deletePerformed'
+          to='completed'
         >
         </Item>
+      </div>
     </div>
     <div class="AllRight"><HeaderRight></HeaderRight></div>
   </div>

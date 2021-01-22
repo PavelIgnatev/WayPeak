@@ -2,14 +2,14 @@
   <div class="FormSubmit">
     <form @submit.prevent="sendDate">
       <input
-        class="All__input"
+        class="centerView__input"
         type="text"
         placeholder='Добавьте задачу в "Входящие", нажмите Enter для сохранения'
         v-model="text"
       />
       <input
         type="submit"
-        style="opacity: 0; z-index: -1; position: absolute"
+        style="opacity: 0; z-index: -1; position: absolute: top: 9999px"
       />
     </form>
   </div>
@@ -48,11 +48,14 @@ export default {
 };
 </script>
 <style lang="sass">
-.All
-  &__wrapper
-    margin: 0
-    padding: 0
-    margin-top: 15px
-    height: calc(100vh - 64px)
-    overflow: auto
+.FormSubmit
+  display: block
+  height: 40px
+  margin: 0 28px 12px
+  .centerView__input
+    width: 100%
+    height: 100%
+    &::placeholder
+      color: #808080
+      font-size: 14px
 </style>

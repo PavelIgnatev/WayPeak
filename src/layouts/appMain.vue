@@ -1,57 +1,47 @@
 <template >
-  <div class="appMain">
-    <div class="load" v-if="loading">
-      <Plane
-        style="
-          position: absolute;
-          left: 50%;
-          top: 45%;
-          transform: translate(-50%, -50%);
-        "
-      ></Plane>
-    </div>
-    <AppHeader></AppHeader>
-    <router-view style="box-sizing: border-box" ></router-view>
+  <div class="containerMain">
+    <Preload></Preload>
+    <AppLeft :class="{hide: !$store.getters.returnHamburgerMenu}"></AppLeft>
+    <AppCenter></AppCenter>
+    <AppRight></AppRight>
   </div>
 </template>
 <script>
-import { Plane } from "vue-loading-spinner";
-import AppHeader from "../components/appheader/AppHeader";
+import Preload from '../components/preload/preload'
+import AppLeft from "../components/appLeft/AppLeft";
+import AppCenter from "../components/appCenter/appCenter";
+import AppRight from "../components/appRight/appRight";
 export default {
   name: "app",
-
-  data() {
-    return {
-      loading: true,
-    };
-  },
-
-  mounted() {
-    setTimeout(() => {
-      this.loading = false;
-    }, 2500);
-  },
-
-  
   components: {
-    Plane,
-    AppHeader
+    AppLeft,
+    AppCenter,
+    AppRight,
+    Preload,
+    
   },
 };
 </script>
 <style lang="sass">
-.load
-  margin: 0
-  padding: 0
-  position: absolute
-  top: 0
-  left: 0
-  width: 100%
+@import '@/assets/sass/_variables'
+.containerMain
   height: 100vh
-  background: white
-  z-index: 100000
-.appMain
-  overflow: hidden
+  width: 100vw
   user-select: none
   display: flex
+.appLeft, .appHeader
+  transition: 0.3s ease-in-out !important
+.appCenter  
+  flex-grow: 1
+  z-index: 1000
+.appRight
+  width: 36% 
+  min-width: 312px
+  z-index: 100
+.hide
+  transition: 0.2s ease-in-out !important
+  opacity: 0
+  .appHeader 
+    opacity: 0
+    width: 0px
 </style>

@@ -1,6 +1,6 @@
 <template >
     <header class="HeaderGorizontal">
-        <img src="../../assets/img/icons/menu.svg" class='HeaderGorizontal__img' @click="notActive">
+        <img src="@/assets/img/icons/menu.svg" class='HeaderGorizontal__img' @click="notActive">
         <div class="HeaderGorizontal__text">{{text}}</div>
     </header>
 </template>
@@ -19,16 +19,15 @@ export default {
 @import '@/assets/sass/_variables'
 .HeaderGorizontal
     height: 64px
-    width : 100%
     display: flex
     align-items: center
-    padding-left: 2px
     &__text
         margin-left: 16px
         margin-top: 4px
         font-size: 22px
         color: rgba(0,0,0,.85)
     &__img
+        margin-left: 28px
         margin-top: 2px
         cursor: pointer
         display: block

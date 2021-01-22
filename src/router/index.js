@@ -38,16 +38,33 @@ const routes = [{
     component: () => import('../layouts/appMain.vue'),
     children: [{
         path: '/app/all',
-        component: () => import('../components/app/All.vue'),
-        children: [{path:'/app/all/:id'}]
+        components: {
+          a: () => import('../components/app/All.vue'),
+          b: () => import('../components/appRight/blockRight.vue')
+        },
+        children: [{
+          path: '/app/all/:id'
+        }, ]
       },
       {
         path: '/app/completed',
-        component: () => import('../components/app/Comlit.vue')
+        components: {
+          a: () => import('../components/app/Comlit.vue'),
+          b: () => import('../components/appRight/blockRight.vue')
+        },
+        children: [{
+          path: '/app/completed/:id'
+        }]
       },
       {
         path: '/app/inbox',
-        component: () => import('../components/app/Inbox.vue')
+        components: {
+          a: () => import('../components/app/Inbox.vue'),
+          b: () => import('../components/appRight/blockRight.vue')
+        },
+        children: [{
+          path: '/app/inbox/:id'
+        }]
       },
       {
         path: '/app/today',
