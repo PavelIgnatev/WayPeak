@@ -6,6 +6,7 @@
       <div class="All__wrapper">
         <Item
           v-for="(item, index) in $store.getters.returnInboxPost"
+          :data='item.data'
           :key="index"
           :keyy="index"
           :item="item.text"
@@ -22,15 +23,14 @@
 import Item from "../Item/Item";
 import FormSubmit from '../formSbm/FormSubmit'
 import HeaderGorizontal from '../headerGorizontal/HeaderGorizontal.vue'
-import HeaderRight from '../headerRight/headerRight'
 export default {
-  name: "All",
+  name: "Inbox",
   data() {
     return {
       text: "",
     };
   },
   
-  components: {HeaderGorizontal, FormSubmit, HeaderRight, Item}
+  components: {HeaderGorizontal, FormSubmit, Item}
 };
 </script>

@@ -15,6 +15,9 @@ export default{
             try{
                 await firebase.auth().signOut()
                 commit('clearInfo')
+                commit('clearTrash')
+                commit('clearInboxPost')
+                commit('clearPerformed')
             }catch(e){
                 throw e
             }

@@ -5,6 +5,7 @@
       <div class="centerView__wrapper">
         <Item
           v-for="(item, index) in $store.getters.returnInboxPost"
+          :data='item.data'
           :key="index"
           :keyy="index"
           :item="item.text"

@@ -16,6 +16,9 @@ export default{
     mutations:{
         sendMess(state, mess){
             state.InboxPost = mess
+        },
+        clearInboxPost(state){
+            state.InboxPost = {}
         }
     },
     actions:{
@@ -23,7 +26,8 @@ export default{
             try{
                 const uid = await dispatch('getUid')
                 await firebase.database().ref(`/users/${uid}/data`).push({
-                    text
+                    text, 
+                    data: Date.now()
                 })
                 dispatch('fetchMess')
             } catch(e){

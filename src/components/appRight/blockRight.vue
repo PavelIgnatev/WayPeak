@@ -4,10 +4,7 @@
      {{ $route.params.id }}
   </div>
   <div class="blockRightNone" v-else-if="!$route.params.id">
-    <img
-      src=""
-      class="blockRight__Img"
-    />
+    2
   </div>
 </template>
 <script>

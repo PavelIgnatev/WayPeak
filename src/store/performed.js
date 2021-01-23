@@ -14,10 +14,13 @@ export default{
     mutations:{
         sendPerformed(state, mess){
             state.performed = mess
+        },
+        clearPerformed(state){
+            state.performed = {}
         }
     },
     actions: {
-        async pushPerformed({dispatch, commit}, {text}){
+        async pushPerformed({dispatch, commit}, {text, data}){
             try{
                 const uid = await dispatch('getUid')
                 await firebase.database().ref(`/users/${uid}/performed`).push({
@@ -41,6 +44,7 @@ export default{
                 const uid = await dispatch('getUid')
                 const data = (await firebase.database().ref(`/users/${uid}/performed/${id}`).remove())
                 dispatch('fetchPerformed')
+                
             } catch (e) {
                 throw(e)
             }

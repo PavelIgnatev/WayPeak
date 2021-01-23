@@ -1,7 +1,7 @@
 <template >
   <div class="containerMain">
     <Preload></Preload>
-    <AppLeft :class="{hide: !$store.getters.returnHamburgerMenu}"></AppLeft>
+    <AppLeft v-if="$store.getters.returnHamburgerMenu"></AppLeft>
     <AppCenter></AppCenter>
     <AppRight></AppRight>
   </div>
@@ -18,7 +18,11 @@ export default {
     AppCenter,
     AppRight,
     Preload,
-    
+  },
+  async mounted() {
+    if (!Object.keys(this.$store.getters.returnInboxPost).length) {
+      await this.$store.dispatch("fetchMess");
+    }
   },
 };
 </script>
@@ -29,19 +33,11 @@ export default {
   width: 100vw
   user-select: none
   display: flex
-.appLeft, .appHeader
-  transition: 0.3s ease-in-out !important
 .appCenter  
   flex-grow: 1
   z-index: 1000
 .appRight
-  width: 36% 
+  max-width: 313px
   min-width: 312px
   z-index: 100
-.hide
-  transition: 0.2s ease-in-out !important
-  opacity: 0
-  .appHeader 
-    opacity: 0
-    width: 0px
 </style>

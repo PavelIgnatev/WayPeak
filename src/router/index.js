@@ -76,7 +76,13 @@ const routes = [{
       },
       {
         path: '/app/trash',
-        component: () => import('../components/app/Trash.vue')
+        components: {
+          a: () => import('../components/app/Trash.vue'),
+          b: () => import('../components/appRight/blockRight.vue')
+        },
+        children: [{
+          path: '/app/trash/:id'
+        }]
       },
       {
         path: '/app/week',
