@@ -1,13 +1,13 @@
 <template >
-    <li class="AppSetting">
-        <router-link :to='to' class="AppSetting_a">{{text}}</router-link>
-    </li>
+  <li class="AppSetting">
+    <router-link :to="to" class="AppSetting_a">{{ text }}</router-link>
+  </li>
 </template>
 <script>
 export default {
-    name: 'AppSetting',
-    props: ['text', 'to']
-}
+  name: "AppSetting",
+  props: ["text", "to"],
+};
 </script>
 <style lang="sass">
 .AppSetting
@@ -34,5 +34,4 @@ export default {
         height: 100%
         cursor: pointer
         background: white
-        
 </style>

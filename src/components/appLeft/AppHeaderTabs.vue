@@ -51,20 +51,20 @@ export default {
 <style lang="sass">
 @import '@/assets/sass/_variables'
 .appHeaderTabs
-    width: 100%
-    margin-top: 10px
-    display: flex
+  width: 100%
+  margin-top: 10px
+  display: flex
 .appHeaderTabs > div
-    cursor: pointer
-    width: 50%
-    text-align: center
-    font-size: 14px
-    color: rgba(0, 0, 0, 0.36)
-    transition: 0.2s ease-in-out
-    border-bottom: 1px solid rgba(0,0,0,.1)
+  cursor: pointer
+  width: 50%
+  text-align: center
+  font-size: 14px
+  color: rgba(0, 0, 0, 0.36)
+  transition: 0.2s ease-in-out
+  border-bottom: 1px solid rgba(0,0,0,.1)
 .activeTab
-    font-weight: 700
-    font-size: 13.5px !important
-    color: #2c2727 !important
-    border-bottom: 1px solid #2c2727 !important
+  font-weight: 700
+  font-size: 13.5px !important
+  color: #2c2727 !important
+  border-bottom: 1px solid #2c2727 !important
 </style>

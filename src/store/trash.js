@@ -20,12 +20,13 @@ export default{
         }
     },
     actions: {
-        async pushTrash({dispatch, commit}, {text, data}){
+        async pushTrash({dispatch, commit}, {text, data, description}){
             try{
                 const uid = await dispatch('getUid')
                 await firebase.database().ref(`/users/${uid}/trash`).push({
                     text,
-                    data
+                    data,
+                    description
                 })
                 dispatch('fetchTrash')
             } catch(e){
@@ -40,10 +41,19 @@ export default{
             } catch (e) {
             }
         },
-        async deleteTrash({dispatch, commit}){
+        async deleteTrashAll({dispatch, commit}){
             try {
                 const uid = await dispatch('getUid')
                 const data = (await firebase.database().ref(`/users/${uid}/trash`).remove())
+                dispatch('fetchTrash')
+            } catch (e) {
+                throw(e)
+            }
+        },
+        async deleteTrash({dispatch, commit}, {id}){
+            try {
+                const uid = await dispatch('getUid')
+                const data = (await firebase.database().ref(`/users/${uid}/trash/${id}`).remove())
                 dispatch('fetchTrash')
             } catch (e) {
                 throw(e)

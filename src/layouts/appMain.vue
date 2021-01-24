@@ -18,6 +18,7 @@ export default {
     AppCenter,
     AppRight,
     Preload,
+
   },
   async mounted() {
     if (!Object.keys(this.$store.getters.returnInboxPost).length) {

@@ -20,11 +20,13 @@ export default{
         }
     },
     actions: {
-        async pushPerformed({dispatch, commit}, {text, data}){
+        async pushPerformed({dispatch, commit}, {text, description, data}){
             try{
                 const uid = await dispatch('getUid')
                 await firebase.database().ref(`/users/${uid}/performed`).push({
-                    text
+                    text,
+                    data,
+                    description
                 })
                 dispatch('fetchPerformed')
             } catch(e){

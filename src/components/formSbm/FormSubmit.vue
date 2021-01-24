@@ -25,10 +25,12 @@ export default {
     async sendDate() {
       const formData = {
         text: this.text,
+        description: "",
       };
       try {
         if (this.text) {
           this.text = "";
+
           await this.$store.dispatch("pushMess", formData);
         }
       } catch (e) {

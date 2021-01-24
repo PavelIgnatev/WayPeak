@@ -22,12 +22,13 @@ export default{
         }
     },
     actions:{
-        async pushMess({dispatch, commit}, {text}){
+        async pushMess({dispatch, commit}, {text, description, data}){
             try{
                 const uid = await dispatch('getUid')
                 await firebase.database().ref(`/users/${uid}/data`).push({
                     text, 
-                    data: Date.now()
+                    description,
+                    data: data ? data : Date.now()
                 })
                 dispatch('fetchMess')
             } catch(e){

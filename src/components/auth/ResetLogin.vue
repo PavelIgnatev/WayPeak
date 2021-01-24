@@ -30,9 +30,7 @@
           >Неверный формат e-mail</small
         >
         <small v-if="mailError">Слишком много попыток, попробуйте позже</small>
-        <small v-if="mailErrorNot"
-          >Пользователь с таким e-mail не найден</small
-        >
+        <small v-if="mailErrorNot">Пользователь с таким e-mail не найден</small>
       </div>
       <div class="form__subheader">
         На ваш e-mail будут отправлены инструкции для восстановления пароля.

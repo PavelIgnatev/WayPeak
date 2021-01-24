@@ -1,5 +1,5 @@
 <template >
-  <div class="ItemData" v-if="data" :class="{ prosr: localeDate != nowDate }">
+  <div class="ItemData" v-if="data" :class="[{ prosr: localeDate != nowDate }, [classes]]">
     {{
       localeDate == nowDate
         ? "Сегодня"
@@ -14,7 +14,7 @@
 <script>
 export default {
   name: "ItemData",
-  props: ["data"],
+  props: ["data", "classes"],
   data() {
     return {
       month: {
@@ -51,7 +51,7 @@ export default {
 .ItemData
   top: 50%
   transform: translateY(-50%)
-  right: 52px
+  right: 0px
   position: absolute
   color: #4e71de
   font-size: 12px

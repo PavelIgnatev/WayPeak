@@ -15,7 +15,10 @@
           >
             Отправить повторно
           </div>
-          <div class="sendAgain_time">через 00:{{ tic > 9 ? tic : '0'+tic }} (или напишите нам на hello@waypeak.ru)</div>
+          <div class="sendAgain_time">
+            через 00:{{ tic > 9 ? tic : "0" + tic }} (или напишите нам на
+            hello@waypeak.ru)
+          </div>
         </div>
         <div class="registration mt50px">
           У вас уже есть аккаунт?
@@ -51,7 +54,9 @@ export default {
       try {
         await this.$store.dispatch("sendPasswordResetEmail", formData);
         this.tic = 30;
-      } catch (e) {this.$route.push('/auth/reset')}
+      } catch (e) {
+        this.$route.push("/auth/reset");
+      }
     },
   },
 };

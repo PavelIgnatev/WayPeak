@@ -13,8 +13,7 @@
           :class="[
             { input__focus: focusName || name },
             {
-              invalid:
-                ($v.name.$dirty && !$v.name.required),
+              invalid: $v.name.$dirty && !$v.name.required,
             },
           ]"
         />
@@ -31,8 +30,7 @@
           :class="[
             { input__focus: focusSername || Sername },
             {
-              invalid:
-                ($v.Sername.$dirty && !$v.Sername.required),
+              invalid: $v.Sername.$dirty && !$v.Sername.required,
             },
           ]"
         />
@@ -102,16 +100,21 @@
           />
         </div>
       </div>
-      <div style="display: flex;position: relative">
+      <div style="display: flex; position: relative">
         <input
           type="checkbox"
           name="b"
-          id='check'
+          id="check"
           value=""
           class="form__check"
           v-model.trim="checked"
         />
-        <label for="check" class="form__checkbox" :class="{form__checkbox_active: checked}" style="display: flex"></label>
+        <label
+          for="check"
+          class="form__checkbox"
+          :class="{ form__checkbox_active: checked }"
+          style="display: flex"
+        ></label>
         <div class="form__checbox_text">
           Я согласен с условиями обработки
           <router-link class="form__checbox_link" to="/"
@@ -173,13 +176,14 @@ export default {
         this.$v.$touch();
         return;
       }
-      let colors = ['#512da8']
+      let colors = ["#512da8"];
       const formData = {
         name: this.name,
         sername: this.Sername,
         email: this.mail,
         password: this.password,
-        backgroundImg: colors[Math.round((Math.random(1) * (colors.length - 1) + 1)) - 1]
+        backgroundImg:
+          colors[Math.round(Math.random(1) * (colors.length - 1) + 1) - 1],
       };
       try {
         await this.$store.dispatch("register", formData);
@@ -198,5 +202,5 @@ export default {
   &__checkbox
     top: 1px
 .form__checbox_text
-      margin-left: 22px
+  margin-left: 22px
 </style>

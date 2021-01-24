@@ -1,24 +1,32 @@
 <template >
-    <header class="HeaderGorizontal">
-        <img src="@/assets/img/icons/menu.svg" class='HeaderGorizontal__img' @click="notActive">
-        <div class="HeaderGorizontal__text">{{text}}</div>
-        <img src="@/assets/img/icons/broom.svg" class='HeaderGorizontal__clear' @click="clear" v-if="text == 'Корзина'">
-    </header>
+  <header class="HeaderGorizontal">
+    <img
+      src="@/assets/img/icons/menu.svg"
+      class="HeaderGorizontal__img"
+      @click="notActive"
+    />
+    <div class="HeaderGorizontal__text">{{ text }}</div>
+    <img
+      src="@/assets/img/icons/cleaar.svg"
+      class="HeaderGorizontal__clear"
+      @click="open"
+      v-if="text == 'Корзина'"
+    />
+  </header>
 </template>
 <script>
 export default {
-    name: 'HeaderGorizontal',
-    props: ['text'],
-    methods: {
-        notActive(){
-            this.$store.commit('nothamburger')
-        },
-        clear(){
-            this.$store.dispatch('deleteTrash')
-        }
+  name: "HeaderGorizontal",
+  props: ["text"],
+  methods: {
+    notActive() {
+      this.$store.commit("nothamburger");
     },
-
-}
+    open(){
+      this.$store.commit("OpenModalClose")
+    }
+  },
+};
 </script>
 <style lang="sass">
 @import '@/assets/sass/_variables'
@@ -33,9 +41,11 @@ export default {
         width: 18px
         cursor: pointer
         position: absolute
-        right: 75px
+        right: 50px
         top: 50%
         transform: translateY(-50%)
+        &:hover
+            filter: invert(0.5)
     &__text
         margin-left: 16px
         margin-top: 4px
@@ -47,4 +57,6 @@ export default {
         cursor: pointer
         display: block
         width: 16px
+        &:hover
+            filter: invert(0.5)
 </style>

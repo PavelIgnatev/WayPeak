@@ -1,11 +1,6 @@
 <template >
   <div class="appLeft">
-    <div
-      class="appHeader"
-      v-if="
-        !this.$route.path.includes('/app/q')
-      "
-    >
+    <div class="appHeader" v-if="!this.$route.path.includes('/app/q')">
       <div class="appHeader__header">
         <div
           class="appHeader__header__icon"
@@ -195,8 +190,8 @@ export default {
       background: rgba(0,0,0,0)
       position: absolute
       top: 0
-      left: 0
-      z-index: -1
+      right: 0
+      z-index: 100
       width: 100vw
       height: 100vh
   &__setting

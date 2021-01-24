@@ -13,7 +13,14 @@
       <div class="date">{{ day }}</div>
     </div>
     <div class="appHeader__text">
-      {{ title }} <span v-if="($store.getters.returnInboxPostLength && (title == 'Все' || title == 'Входящие'))">{{$store.getters.returnInboxPostLength}}</span>
+      {{ title }}
+      <span
+        v-if="
+          $store.getters.returnInboxPostLength &&
+          (title == 'Все' || title == 'Входящие')
+        "
+        >{{ $store.getters.returnInboxPostLength }}</span
+      >
     </div>
   </router-link>
 </template>
@@ -49,6 +56,7 @@ export default {
     height: 36px
     font-size: 14px
     border-radius: 4px
+    position: relative
     &:hover
       background-color: rgba(75,111,222,.12)
   &__img
@@ -71,7 +79,7 @@ export default {
     margin-left: 2px
     span
       position: absolute
-      left: 220px
+      right: 15px
       font-size: 12px
       font-weight: 400
       color: #707070
