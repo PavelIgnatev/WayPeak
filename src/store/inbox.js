@@ -52,6 +52,19 @@ export default{
             } catch (e) {
                 throw(e)
             }
-        }
+        },
+        async updateMess({dispatch, commit}, {text, description, data, id}){
+            try{
+                const uid = await dispatch('getUid')
+                await firebase.database().ref(`/users/${uid}/data/${id}`).update({
+                    text: text ? text : 'Укажите название задачи', 
+                    description,
+                    data: data ? data : Date.now()
+                })
+                dispatch('fetchMess')
+            } catch(e){
+                throw e
+            }
+        },
     }
 }

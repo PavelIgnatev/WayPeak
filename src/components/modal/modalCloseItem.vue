@@ -121,39 +121,39 @@ export default {
     margin-top: 15px
     font-weight: 700
     font-size: 18px
-    &__descr
-      margin-top: 35px
-      font-size: 14px
-      line-height: 22px
-    &__wrapper
-      display: flex
-      margin-top: 40px
-      margin-left: 280px
-    &__close
-      font-size: 15px
-      color: rgba(0,0,0,.85)
-      margin-left: 12px
-      padding: 5px 20px 5px 20px
-      min-width: 120px
-      background: rgba(46,73,136,.08)
+  &__descr
+    margin-top: 35px
+    font-size: 14px
+    line-height: 22px
+  &__wrapper
+    display: flex
+    margin-top: 45px
+    margin-left: 280px
+  &__close
+    font-size: 15px
+    color: rgba(0,0,0,.85)
+    margin-left: 12px
+    padding: 5px 20px 5px 20px
+    min-width: 120px
+    background: rgba(46,73,136,.08)
+    border: 1px solid rgba(0,0,0,.1)
+    transition: 0.2s ease-in-out
+    height: 35px
+    &:hover
+      background: rgba(46,73,136,.16)
       border: 1px solid rgba(0,0,0,.1)
-      transition: 0.2s ease-in-out
-      height: 35px
-      &:hover
-        background: rgba(46,73,136,.16)
+      &:active, &:focus
         border: 1px solid rgba(0,0,0,.1)
-        &:active, &:focus
-          border: 1px solid rgba(0,0,0,.1)
-    &__confirm
-      font-size: 15px
-      margin-left: 12px
-      border-radius: 3px
-      padding: 1px 20px 1px 20px
-      height: 35px
-      background: #4b6fde
-      min-width: 120px
-      color: white
-      transition: 0.2s ease-in-out
-      &:hover
-        background: #3a53a7
+  &__confirm
+    font-size: 15px
+    margin-left: 12px
+    border-radius: 3px
+    padding: 1px 20px 1px 20px
+    height: 35px
+    background: #4b6fde
+    min-width: 120px
+    color: white
+    transition: 0.2s ease-in-out
+    &:hover
+      background: #3a53a7
 </style>

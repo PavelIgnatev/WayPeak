@@ -10,9 +10,11 @@ export default {
 </script>
 <style lang="sass">
 .centerView
-    height: 100vh
+    max-height: 100vh
+    max-height: 100vh
+    overflow: hidden
     &__wrapper
-      height: calc(100vh - 120px)
+      height: calc(100vh - 80px)
       margin-right: 25px
       overflow: auto
 </style>

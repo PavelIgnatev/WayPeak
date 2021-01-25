@@ -7,6 +7,7 @@
     <div
       contenteditable
       v-if="this.$store.getters[to][id]"
+      :key='$route.params.id'
       @input="debounceInput"
     >
       {{ $store.getters[to][id].text }}
@@ -58,7 +59,13 @@ export default {
   },
   methods: {
     debounceInput: _.debounce(function (e) {
-      console.log(e.target.innerText);
+      let formData = {
+        id: this.id,
+        text: e.target.innerText,
+        data: this.$store.getters[this.to][this.id].data,
+        description: ''
+      }
+      this.$store.dispatch('updateMess', formData)
     }, 500),
   },
 };
