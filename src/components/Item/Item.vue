@@ -11,7 +11,7 @@
           class="Item__item"
           :class="{ it: !$store.getters.returnHamburgerMenu }"
         >
-          {{ item }}
+          {{ item.replace(/\s+/g, ' ').trim() }}
           <ItemData :data="data" v-if="to != 'completed'"></ItemData>
         </div>
       </div>
@@ -70,7 +70,7 @@ export default {
     width: 100%
     white-space: nowrap
     text-overflow: ellipsis
-    max-width: 47vw
+    max-width: 43vw
     overflow: hidden
   .router-link-active
     background-color: rgba(75,111,222,.12)
@@ -90,7 +90,7 @@ export default {
     display: block
     background: url('../../assets/img/icons/check.svg') center center/cover no-repeat
   .it
-    max-width: 67vw
+    max-width: 63vw
   .notAllowed
     border: 1px solid red !important
     cursor: not-allowed
