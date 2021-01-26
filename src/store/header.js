@@ -36,27 +36,27 @@ export default {
                 active: "$route.path.includes('/app/inbox') ? true : false",
                 to: "/app/inbox"
             },
-            {
-                title: "Сегодня",
-                classImg: "invert_7",
-                src: "assets/img/icons/today.svg",
-                active: "$route.path.includes('/app/today') ? true : false",
-                to: "/app/today"
-            },
-            {
-                title: "Завтра",
-                classImg: "invert_7",
-                src: "assets/img/icons/today.svg",
-                active: "$route.path.includes('/app/tomorrow') ? true : false",
-                to: "/app/tomorrow"
-            },
-            {
-                title: "Следующая неделя",
-                classImg: "invert_7",
-                src: "assets/img/icons/week.svg",
-                active: "$route.path.includes('/app/week') ? true : false",
-                to: "/app/week"
-            }
+            //{
+            //    title: "Сегодня",
+            //    classImg: "invert_7",
+            //    src: "assets/img/icons/today.svg",
+            //    active: "$route.path.includes('/app/today') ? true : false",
+            //    to: "/app/today"
+            //},
+            //{
+            //     title: "Завтра",
+            //    classImg: "invert_7",
+            //    src: "assets/img/icons/today.svg",
+            //    active: "$route.path.includes('/app/tomorrow') ? true : false",
+            //    to: "/app/tomorrow"
+            //},
+            //{
+            //    title: "Следующая неделя",
+            //    classImg: "invert_7",
+            //    src: "assets/img/icons/week.svg",
+            //    active: "$route.path.includes('/app/week') ? true : false",
+            //    to: "/app/week"
+            //}
         ],
         toHeaderItem: [{
                 title: "Выполнено",

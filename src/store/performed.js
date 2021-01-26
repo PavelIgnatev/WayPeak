@@ -50,6 +50,33 @@ export default{
             } catch (e) {
                 throw(e)
             }
-        }
+        },
+        async updatePerformed({
+            dispatch,
+            commit
+        }, {
+            text,
+            description,
+            id
+        }) {
+            try {
+                const uid = await dispatch('getUid')
+                if (text) {
+                    await firebase.database().ref(`/users/${uid}/performed/${id}`).update({
+                        text: text ? text : 'Укажите название задачи',
+                    })
+                    dispatch('fetchPerformed')
+                } else {
+                    if (description) {
+                        await firebase.database().ref(`/users/${uid}/performed/${id}`).update({
+                            description: description ? description : 'Укажите описание задачи',
+                        })
+                        dispatch('fetchPerformed')
+                    }
+                }
+            } catch (e) {
+                throw e
+            }
+        },
     }
 }

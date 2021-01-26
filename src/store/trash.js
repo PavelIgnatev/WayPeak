@@ -58,6 +58,33 @@ export default{
             } catch (e) {
                 throw(e)
             }
-        }
+        },
+        async updateTrash({
+            dispatch,
+            commit
+        }, {
+            text,
+            description,
+            id
+        }) {
+            try {
+                const uid = await dispatch('getUid')
+                if (text) {
+                    await firebase.database().ref(`/users/${uid}/trash/${id}`).update({
+                        text: text ? text : 'Укажите название задачи',
+                    })
+                    dispatch('fetchTrash')
+                } else {
+                    if (description) {
+                        await firebase.database().ref(`/users/${uid}/trash/${id}`).update({
+                            description: description ? description : 'Укажите описание задачи',
+                        })
+                        dispatch('fetchTrash')
+                    }
+                }
+            } catch (e) {
+                throw e
+            }
+        },
     }
 }
