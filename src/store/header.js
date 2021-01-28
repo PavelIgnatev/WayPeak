@@ -1,9 +1,9 @@
 export default {
     state: {
-        MainSettingMenu: [{
-                text: "Настройки",
-                to: "/app/q/setting"
-            },
+        MainSettingMenu: [//{
+                //text: "Настройки",
+              //to: "/app/q/setting"
+            //},
             {
                 text: "Статистика",
                 to: "/app/q/statistics"

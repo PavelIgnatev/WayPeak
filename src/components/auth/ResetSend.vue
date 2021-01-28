@@ -55,7 +55,7 @@ export default {
         await this.$store.dispatch("sendPasswordResetEmail", formData);
         this.tic = 30;
       } catch (e) {
-        this.$route.push("/auth/reset");
+        this.$router.push("/auth/reset");
       }
     },
   },

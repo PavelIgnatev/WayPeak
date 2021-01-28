@@ -4,24 +4,26 @@
       v-if="$store.getters[to][id]"
       :data="$store.getters[to][id]['data']"
     ></HeaderRight>
-    <div
-      contentEditable="true"
-      v-if="this.$store.getters[to][id]"
-      :key="$route.params.id"
-      @input="debounceName"
-      class="blockRight__name"
-      ref="name"
-      data-text="Что нужно делать"
-    ></div>
-    <div
-      contentEditable="true"
-      v-if="this.$store.getters[to][id]"
-      :key="$route.params.id + $route.params.id"
-      @input="debounceDescription"
-      class="blockRight__description"
-      ref="description"
-      data-text="Описание"
-    ></div>
+    <div class="blockRight__wrapper">
+      <div
+        contentEditable="true"
+        v-if="this.$store.getters[to][id]"
+        :key="$route.params.id"
+        @input="debounceName"
+        class="blockRight__name"
+        ref="name"
+        data-text="Что нужно делать"
+      ></div>
+      <div
+        contentEditable="true"
+        v-if="this.$store.getters[to][id]"
+        :key="$route.params.id + $route.params.id"
+        @input="debounceDescription"
+        class="blockRight__description"
+        ref="description"
+        data-text="Описание"
+      ></div>
+    </div>
   </div>
   <div class="blockRightNone" v-else-if="id">
     {{ id }}
@@ -74,14 +76,20 @@ export default {
         id: this.id,
         text: e.target.innerText.trim(),
       };
-      this.$store.dispatch(`${this.paths[this.$route.path.split("/")[2]][1]}`, formData);
+      this.$store.dispatch(
+        `${this.paths[this.$route.path.split("/")[2]][1]}`,
+        formData
+      );
     }, 500),
     debounceDescription: _.debounce(function (e) {
       let formData = {
         id: this.id,
         description: e.target.innerText.trim(),
       };
-      this.$store.dispatch(`${this.paths[this.$route.path.split("/")[2]][1]}`, formData);
+      this.$store.dispatch(
+        `${this.paths[this.$route.path.split("/")[2]][1]}`,
+        formData
+      );
     }, 500),
   },
 };
@@ -92,6 +100,9 @@ export default {
   height: 100vh
   color: rgba(0,0,0,.85)
   position: relative
+  &__wrapper
+    overflow: auto !important
+    height: calc(100vh - 63px)
   &__name
     line-height: 24px
     font-size: 16px
@@ -115,7 +126,7 @@ export default {
   margin-top: 20px
   width: 280px
   resize: none
-  
+
   height: 40vh
   &::placeholder
     font-size: 14px

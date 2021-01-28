@@ -38,5 +38,5 @@ export default {
   width: 100%
   height: 100vh
   background: white
-  z-index: 100000
+  z-index: 10000000000000000000000
 </style>

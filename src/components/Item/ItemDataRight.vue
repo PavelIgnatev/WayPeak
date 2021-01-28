@@ -1,6 +1,21 @@
 <template >
   <div class="ItemDataRight" :class="{ prosrRight: localeDate != nowDate }">
-    {{ localeDate }}
+    {{
+      localeDate == nowDate
+        ? "Сегодня,"
+        : LocalDateTwoDay == nowDate
+        ? "Вчера,"
+        : `${Math.round((Date.now() - data) / 86400000)} ${declOfNum(
+            Math.round((Date.now() - data) / 86400000),
+            ["день назад", "дня назад", "дней назад"]
+          )},`
+    }}
+
+    {{
+      `${new Date(this.data).getDate()} ${
+        month[new Date(this.data).getMonth()]
+      }`
+    }}
   </div>
 </template>
 <script>
@@ -36,20 +51,30 @@ export default {
       return new Date(this.data + 86400000).toLocaleDateString();
     },
   },
+  methods: {
+    declOfNum(number, words) {
+      return words[
+        number % 100 > 4 && number % 100 < 20
+          ? 2
+          : [2, 0, 1, 1, 1, 2][number % 10 < 5 ? number % 10 : 5]
+      ];
+    },
+  },
 };
 </script>
 <style lang="sass">
-.ItemDataRight  
-    font-size: 16px
-    font-weight: 300
-    display: flex
-    justify-content: center
-    align-items: center
-    height: 100%
-    transition: 0.2s ease-in-out
-    &:hover
-        cursor: pointer
-        color: #bd3020
+.ItemDataRight
+  font-size: 14px
+  font-weight: 300
+  display: flex
+  justify-content: center
+  align-items: center
+  color: #4e71de
+  height: 100%
+  transition: 0.2s ease-in-out
+  &:hover
+    cursor: pointer
 .prosrRight
-  color: red
+  color: #e13e39
+
 </style>

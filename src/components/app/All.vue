@@ -4,12 +4,12 @@
     <FormSubmit></FormSubmit>
     <div class="centerView__wrapper">
       <Item
-        v-for="(item, index) in $store.getters.returnInboxPost"
-        :description="item.description"
-        :data="item.data"
+        v-for="(item, index) in this.$store.getters.returnsortInboxPost"
+        :description="item[1].description"
+        :data="item[1].data"
         :key="index"
-        :keyy="index"
-        :item="item.text"
+        :keyy="item[0]"
+        :item="item[1].text"
         push="pushPerformed"
         del="deleteMess"
         to="all"

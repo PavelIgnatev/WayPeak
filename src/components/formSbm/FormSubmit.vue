@@ -34,7 +34,6 @@ export default {
           await this.$store.dispatch("pushMess", formData);
         }
       } catch (e) {
-        console.log(e);
       }
     },
   },

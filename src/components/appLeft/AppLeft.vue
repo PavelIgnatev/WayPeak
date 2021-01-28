@@ -38,9 +38,9 @@
             </div>
           </div>
         </div>
-        <div class="appHeader__header__bell">
+        <!-- <div class="appHeader__header__bell">
           <img src="@/assets/img/icons/bell.svg" alt="bell" class="invert_6" />
-        </div>
+        </div> -->
       </div>
       <div class="appHeader__wrapper">
         <div class="appHeaderItem">
@@ -53,7 +53,7 @@
             :classImg="item.classImg"
             :to="item.to"
           ></AppHeaderItem>
-          <AppHeaderTabs></AppHeaderTabs>
+
           <div class="line"></div>
           <AppHeaderItem
             v-for="item in this.$store.getters.returnToHeaderItem"
@@ -149,6 +149,8 @@ export default {
 </script>
 <style lang="sass">
 @import '@/assets/sass/_variables'
+.appLeft
+  display: none
 .appHeader, .AppLeft
   color: $black
   width: 260px
@@ -232,7 +234,7 @@ export default {
       width: 205px
       height: 30px
     &__search
-      margin-right: 15px
+      margin-left: 28px
     &__icon
       cursor: pointer
       display: block
@@ -241,11 +243,14 @@ export default {
       color: white
       width: 28px
       height: 28px
-      display: flex
-      justify-content: center
-      align-items: center
       border-radius: 50%
       margin-left: 3px
+      p
+        width: 100% 
+        height: 100%
+        display: flex
+        justify-content: center
+        align-items: center
     img
       display: block
       width: 17px

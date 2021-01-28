@@ -198,9 +198,11 @@ export default {
 <style lang="sass">
 .mt50px
   margin-top: 50px
+  padding-bottom: 100px !important
 .form
   &__checkbox
     top: 1px
 .form__checbox_text
   margin-left: 22px
+
 </style>

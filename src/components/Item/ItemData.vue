@@ -55,7 +55,11 @@ export default {
   position: absolute
   color: #4e71de
   font-size: 12px
+  height: 26px
+
+  z-index: 300
 .prosr
   font-size: 12px
-  color: red
+  color: #e13e39
+
 </style>

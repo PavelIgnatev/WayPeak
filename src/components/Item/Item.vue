@@ -1,27 +1,31 @@
 <template >
-  <div class="Item">
+  <div class="Item" @click='activeRight'>
     <div
       class="Item__check"
       @click="func"
       :class="[{ active: to == 'completed' }, { notAllowed: to == 'trash' }]"
     ></div>
-    <router-link :to="'/app/' + to + '/' + keyy" class="Item__a" :key="keyy">
+    <router-link :to="'/app/' + to + '/' + keyy" class="Item__a" :key="keyy" @click="this.$store.commit('truemenuRight')">
       <div class="Item__wrapper">
         <div
           class="Item__item"
           :class="{ it: !$store.getters.returnHamburgerMenu }"
         >
-          {{ item.replace(/\s+/g, ' ').trim() }}
+          {{ item.replace(/\s+/g, " ").trim() }}
           <ItemData :data="data" v-if="to != 'completed'"></ItemData>
         </div>
       </div>
     </router-link>
+    <div class="width" style="display: none"> {{wid}}</div>
   </div>
 </template><script>
 import ItemData from "./ItemData";
 export default {
   name: "Item",
   props: ["item", "keyy", "push", "del", "to", "data", "description"],
+  data() {
+    return { width: screen.width };
+  },
   methods: {
     async func() {
       const fromData = {
@@ -32,6 +36,34 @@ export default {
       };
       await this.$store.dispatch(`${this.push}`, fromData);
       await this.$store.dispatch(`${this.del}`, fromData);
+    },
+    updateWidth() {
+      this.width = window.innerWidth;
+    },
+    activeRight(){
+      this.$store.commit('truemenuRight')
+      if(this.width <= 1090){
+        this.$store.commit('falsehamburger')
+      }
+    }
+  },
+  created() {
+    window.addEventListener("resize", this.updateWidth);
+  },
+  computed:{
+    wid(){
+      if(this.width <= 1090){
+        this.$store.commit('falsehamburger')}
+      if(this.width <= 920){
+          this.$store.commit('falsemenuRight')
+        }
+      if(this.width > 920){ 
+        this.$store.commit('truemenuRight')}
+      if(this.width > 1090){
+          this.$store.commit('truehamburger')
+        }
+      
+
     }
   },
   components: { ItemData },
@@ -70,7 +102,7 @@ export default {
     width: 100%
     white-space: nowrap
     text-overflow: ellipsis
-    max-width: 43vw
+    max-width: 42vw
     overflow: hidden
   .router-link-active
     background-color: rgba(75,111,222,.12)

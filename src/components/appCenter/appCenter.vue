@@ -14,7 +14,7 @@ export default {
     max-height: 100vh
     overflow: hidden
     &__wrapper
-      height: calc(100vh - 80px)
+      height: calc(100vh - 120px)
       margin-right: 25px
       overflow: auto
 </style>

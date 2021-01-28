@@ -11,6 +11,15 @@ export default {
         },
         returnInboxPostLength(state) {
             return Object.keys(state.InboxPost).length
+        },
+        returnsortInboxPost: s => {
+            let items = Object.keys(s.InboxPost).map(function(key) {
+                return [key, s.InboxPost[key]];
+              });
+            items.sort(function(first, second) {
+                return first[1].data - second[1].data;
+              });
+            return items
         }
     },
     mutations: {

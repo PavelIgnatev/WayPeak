@@ -12,6 +12,7 @@ export default {
 <style lang="sass">
 .AppSetting
     width: 100%
+    height: 100%
     &_a
         padding: 0 15px
         box-sizing: border-box

@@ -1,9 +1,9 @@
 <template >
   <div class="containerMain">
     <Preload></Preload>
-    <AppLeft v-if="$store.getters.returnHamburgerMenu"></AppLeft>
+    <AppLeft :class="{AppLeftActive: $store.getters.returnHamburgerMenu}"></AppLeft>
     <AppCenter></AppCenter>
-    <AppRight></AppRight>
+    <AppRight v-show="$store.getters.returnmenuRight"></AppRight>
   </div>
 </template>
 <script>
@@ -38,7 +38,10 @@ export default {
   flex-grow: 1
   z-index: 1000
 .appRight
-  max-width: 313px
+  width: 25%
   min-width: 312px
   z-index: 100
+.AppLeftActive
+  left: 0
+  display: block  
 </style>

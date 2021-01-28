@@ -78,7 +78,7 @@ export default {
         await this.$store.dispatch("sendPasswordResetEmail", formData);
         this.$router.push("/auth/reset-success/");
       } catch (e) {
-        const d = e.code.split("/")[1];
+        const d = e.code.split("/") [1];
         if (d == "too-many-requests") {
           this.mailError = true;
         } else {
@@ -86,7 +86,7 @@ export default {
             this.mailErrorNot = true;
           }
         }
-        console.log(e);
+
       }
     },
   },

@@ -9,7 +9,7 @@ export default{
         },
         returnPerformedPostLength(state){
             return Object.keys(state.performed).length
-        }
+        },
     },  
     mutations:{
         sendPerformed(state, mess){

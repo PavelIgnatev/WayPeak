@@ -102,7 +102,8 @@ export default {
       position: absolute
       top: 35px
       font-size: 10.5px
-      color: red
+      color: #e13e39
+
   &__comin
     font-size: 14px
     color: white
@@ -133,6 +134,7 @@ export default {
   .registration
     text-align: center
     font-size: 14px
+    padding-bottom: 50px !important
     a
       transition: 0.2s ease-in-out
       font-weight: 700
@@ -177,7 +179,7 @@ export default {
     &:hover
       border-bottom: 1px solid $twogreen
 .invalid
-  border-bottom: 2px solid red !important
+  border-bottom: 2px solid #e13e39!important
 .ShowHide
   display: flex
   justify-content: center
