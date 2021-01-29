@@ -1,14 +1,23 @@
 export default{
     state: {
         hamburgerMenu: true,
-        menuRight: true
+        menuRight: true,
+        menuLeft: false,
+        inputActive: false
     },
+    
     getters: {
         returnHamburgerMenu(state){
             return state.hamburgerMenu
         },
         returnmenuRight(state){
             return state.menuRight
+        },
+        returnmenuLeft(state){
+            return state.menuLeft
+        },
+        returninputActive(state){
+            return state.inputActive
         }
     },
     mutations: {
@@ -26,6 +35,19 @@ export default{
         },
         falsemenuRight(state){
             state.menuRight = false
+        },
+        truemenuLeft(state){
+            state.menuLeft = true
+        },
+        falsemenuLeft(state){
+            state.menuLeft = false
+        },
+        trueinputActive(state){
+            state.inputActive = true
+        },
+        falseinputActive(state){
+            state.inputActive = false
         }
+        
     }
 }

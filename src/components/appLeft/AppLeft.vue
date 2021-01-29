@@ -5,13 +5,13 @@
         <div
           class="appHeader__header__icon"
           :style="`background: ${backgroundImg}`"
-          @click="ModalActive = true"
+          @click="$store.commit('truemenuLeft')"
         >
           <p>{{ name ? name.split("")[0] : "" }}</p>
         </div>
         <div
           class="appHeader__header__nameandsername"
-          @click="ModalActive = true"
+          @click="$store.commit('truemenuLeft')"
         >
           {{ name }} {{ sername }}
         </div>
@@ -20,27 +20,9 @@
             src="@/assets/img/icons/search.svg"
             alt="search"
             class="invert_6"
-            @click="InputActive = true"
+            @click="$store.commit('trueinputActive')"
           />
-          <div class="appHeader__input" v-if="InputActive">
-            <input
-              type="text"
-              placeholder="Поиск"
-              class="appHeader__input_search"
-              v-model="search"
-            />
-            <div
-              class="appHeader__input__rgba"
-              @click="InputActive = false"
-            ></div>
-            <div class="appHeader__input_times" @click="search = ''">
-              &times;
-            </div>
-          </div>
         </div>
-        <!-- <div class="appHeader__header__bell">
-          <img src="@/assets/img/icons/bell.svg" alt="bell" class="invert_6" />
-        </div> -->
       </div>
       <div class="appHeader__wrapper">
         <div class="appHeaderItem">
@@ -65,50 +47,12 @@
           ></AppHeaderItem>
         </div>
       </div>
-      <div class="appHeader__setting" v-if="ModalActive">
-        <div class="appHeader__setting__wrapper" @click="ModalActive = true">
-          <nav>
-            <ul class="appHeader__setting__menu">
-              <AppSetting
-                v-for="item in this.$store.getters.returnSettingMenu"
-                :key="item.text"
-                :text="item.text"
-                :to="item.to"
-              ></AppSetting>
-              <div class="line"></div>
-              <AppSetting
-                v-for="item in this.$store.getters.returnToSettingMenu"
-                :key="item.text"
-                :text="item.text"
-                :to="item.to"
-              ></AppSetting>
-              <div class="line"></div>
-              <li class="AppSetting">
-                <router-link
-                  to="/"
-                  class="AppSetting_a"
-                  style="margin: 0; padding: 0"
-                  ><button @click.prevent:="quit" class="AppSetting_button">
-                    Выйти
-                  </button></router-link
-                >
-              </li>
-              <div class="line" style="margin-bottom: 0px"></div>
-            </ul>
-          </nav>
-        </div>
-        <div
-          class="appHeader__setting__rgba"
-          @click="ModalActive = false"
-        ></div>
-      </div>
     </div>
   </div>
 </template>
 <script>
 import AppHeaderItem from "./AppHeaderItem";
 import AppHeaderTabs from "./AppHeaderTabs";
-import AppSetting from "./AppSetting";
 export default {
   name: "AppLeft",
   async mounted() {
@@ -129,21 +73,12 @@ export default {
   },
   data() {
     return {
-      inputActive: false,
       ModalActive: false,
-      InputActive: false,
-      search: "",
     };
   },
   components: {
     AppHeaderItem,
     AppHeaderTabs,
-    AppSetting,
-  },
-  methods: {
-    async quit() {
-      await this.$store.dispatch("logout");
-    },
   },
 };
 </script>
@@ -158,70 +93,6 @@ export default {
   transition: 0.2s all
   box-sizing: border-box
   border-right: 1px solid rgba(0,0,0,.15)
-  &__input
-    position: absolute
-    min-width: 260px
-    max-width: 260px
-    height: 64px
-    background: white
-    top: 0
-    left: 0
-    display: flex
-    justify-content: center
-    align-items: center
-    z-index: 100
-    &_times
-      font-size: 22px
-      color: #909090
-      position: absolute
-      right: 25px
-      cursor: pointer
-      z-index: 102
-    &_search
-      box-sizing: border-box
-      color: rgba(0,0,0,.85)
-      width: 220px
-      height: 36px
-      font-size: 16px
-      z-index: 101
-      padding-right: 20px
-      &::placeholder
-        color: #909090
-        font-size: 14px
-    &__rgba
-      background: rgba(0,0,0,0)
-      position: absolute
-      top: 0
-      right: 0
-      z-index: 100
-      width: 100vw
-      height: 100vh
-  &__setting
-    width: 100vw
-    top: 0
-    left: 0
-    height: 100vh
-    z-index: 10
-    background: rgba(0,0,0,0)
-    position: absolute
-    &__wrapper
-      padding: 5px 0
-      width: 185px
-      min-height: 200px
-      background: white
-      z-index: 1001
-      margin-left: 20px
-      margin-top: 50px
-      box-shadow: 0 2px 11px 0 rgba(0,0,0,.3)
-      border-radius: 4px
-    &__rgba
-      background: rgba(0,0,0,0)
-      position: absolute
-      top: 0
-      left: 0
-      z-index: -1
-      width: 100vw
-      height: 100vh
   &__header
     padding: 0 15px
     height: 64px
@@ -234,7 +105,7 @@ export default {
       width: 205px
       height: 30px
     &__search
-      margin-left: 28px
+      margin-left: 33px
     &__icon
       cursor: pointer
       display: block
@@ -244,9 +115,9 @@ export default {
       width: 28px
       height: 28px
       border-radius: 50%
-      margin-left: 3px
+      margin-left: 6px
       p
-        width: 100% 
+        width: 100%
         height: 100%
         display: flex
         justify-content: center
@@ -263,11 +134,12 @@ export default {
       white-space: nowrap
       overflow: hidden
       text-overflow: ellipsis
-      width: 105px
+      width: 120px
       font-size: 14px
       margin-top: 3px
+      margin-left: 12px
       color: $black
-      margin-right: 30px
+
   &__wrapper
     display: flex
     justify-content: center

@@ -13,6 +13,7 @@ export default {
 .AppSetting
     width: 100%
     height: 100%
+    z-index: 100000
     &_a
         padding: 0 15px
         box-sizing: border-box

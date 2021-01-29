@@ -22,7 +22,8 @@ export default {
     },
     closeRight(){
       this.$store.commit('falsemenuRight')
-    }
+    },
+
   },
 };
 </script>

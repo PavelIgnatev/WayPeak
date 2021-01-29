@@ -4,6 +4,8 @@
     <AppLeft :class="{AppLeftActive: $store.getters.returnHamburgerMenu}"></AppLeft>
     <AppCenter></AppCenter>
     <AppRight v-show="$store.getters.returnmenuRight"></AppRight>
+    <ModalMenuLeft v-if="$store.getters.returnmenuLeft && $store.getters.returnHamburgerMenu"></ModalMenuLeft>
+    <ModalInputSearch v-if="$store.getters.returninputActive && $store.getters.returnHamburgerMenu"></ModalInputSearch>
   </div>
 </template>
 <script>
@@ -11,6 +13,8 @@ import Preload from '../components/preload/preload'
 import AppLeft from "../components/appLeft/AppLeft";
 import AppCenter from "../components/appCenter/appCenter";
 import AppRight from "../components/appRight/appRight";
+import ModalMenuLeft from "../components/modal/modalMenuLeft";
+import ModalInputSearch from '../components/modal/modalInputSearch'
 export default {
   name: "app",
   components: {
@@ -18,6 +22,8 @@ export default {
     AppCenter,
     AppRight,
     Preload,
+    ModalMenuLeft,
+    ModalInputSearch
 
   },
   async mounted() {
@@ -32,6 +38,7 @@ export default {
 .containerMain
   height: 100vh
   width: 100vw
+  overflow: hidden
   user-select: none
   display: flex
 .appCenter  
