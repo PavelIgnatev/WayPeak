@@ -62,14 +62,14 @@ export default {
         background: white
         border: 1px solid rgba(0,0,0,.08)
         box-shadow: 0 2px 11px 0 rgba(0,0,0,.25)
-        z-index: 10001
+        z-index: 1000001
     &__menu
-        z-index: 10002
+        z-index: 1000002
     &__cover
         position: absolute
         top: -60px
         left: -25px
         width: calc(100vw - 5px)
         height: calc(100vh)
-        z-index: 10000
+        z-index: 1000000
 </style>

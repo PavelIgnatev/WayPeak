@@ -7,7 +7,7 @@
           :style="`background: ${backgroundImg}`"
           @click="$store.commit('truemenuLeft')"
         >
-          <p>{{ name ? name.split("")[0] : "" }}</p>
+          <p>{{ name ? name[0] : "" }}</p>
         </div>
         <div
           class="appHeader__header__nameandsername"

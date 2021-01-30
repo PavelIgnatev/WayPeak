@@ -1,5 +1,6 @@
 <template >
-  <div class="Item" @click='activeRight'>
+  <div  :class="{boxshadow: classes}">
+    <div class="Item" @click='activeRight' :class='[classes]'>
     <div
       class="Item__check"
       @click="func"
@@ -18,11 +19,12 @@
     </router-link>
     <div class="width" style="display: none"> {{wid}}</div>
   </div>
+  </div>
 </template><script>
 import ItemData from "./ItemData";
 export default {
   name: "Item",
-  props: ["item", "keyy", "push", "del", "to", "data", "description"],
+  props: ["item", "keyy", "push", "del", "to", "data", "description", "classes"],
   data() {
     return { width: screen.width };
   },
@@ -71,6 +73,18 @@ export default {
 </script>
 <style lang="sass">
 @import '@/assets/sass/_variables'
+.boxshadow
+  box-shadow: rgb(108, 190, 94) 3px 0px 0px inset !important
+  position: relative
+  &::after
+    position: absolute
+    border-radius: 50%
+    right: 25px
+    top: 50%
+    content: ''
+    width: 6px
+    height: 6px
+    background: $green
 .Item
   height: 40px
   cursor: pointer

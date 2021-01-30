@@ -32,5 +32,5 @@ export default {
 </script>
 <style lang="sass">
 .mt25px
-  margin-top: 25px
+  margin-top: 25px !important
 </style>

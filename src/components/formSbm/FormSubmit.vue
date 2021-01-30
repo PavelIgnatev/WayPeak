@@ -60,6 +60,6 @@ export default {
     padding: 5px 0
     padding-left: 15px
   &::placeholder
-    color: #808080
+    color: #909090
     font-size: 14px
 </style>

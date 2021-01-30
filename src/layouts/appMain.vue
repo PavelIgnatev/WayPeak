@@ -4,7 +4,7 @@
     <AppLeft :class="{AppLeftActive: $store.getters.returnHamburgerMenu}"></AppLeft>
     <AppCenter></AppCenter>
     <AppRight v-show="$store.getters.returnmenuRight"></AppRight>
-    <ModalMenuLeft v-if="$store.getters.returnmenuLeft && $store.getters.returnHamburgerMenu"></ModalMenuLeft>
+    <ModalMenuLeft v-show="$store.getters.returnmenuLeft && $store.getters.returnHamburgerMenu == true"></ModalMenuLeft>
     <ModalInputSearch v-if="$store.getters.returninputActive && $store.getters.returnHamburgerMenu"></ModalInputSearch>
   </div>
 </template>

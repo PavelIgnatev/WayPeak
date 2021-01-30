@@ -2,7 +2,10 @@
   <div class="centerView">
     <HeaderGorizontal text="Входящие"></HeaderGorizontal>
     <FormSubmit></FormSubmit>
-    <div class="centerView__wrapper">
+    <div
+      class="centerView__wrapper"
+      v-if="Object.keys($store.getters.returnsortInboxPost).length"
+    >
       <Item
         v-for="(item, index) in $store.getters.returnInboxPost"
         :description="item.description"
@@ -15,6 +18,13 @@
         to="inbox"
       >
       </Item>
+    </div>
+    <div class="noTask" v-else>
+      <img src="@/assets/img/icons/all.png" class="noTask__img" />
+      <div class="noTask__text">Никаких задач.</div>
+      <div class="noTask__subtext">
+        Готовы к новым заданиям? Нажмите на блок ввода и запишите их
+      </div>
     </div>
   </div>
 </template>

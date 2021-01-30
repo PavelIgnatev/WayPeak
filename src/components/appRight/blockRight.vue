@@ -25,9 +25,16 @@
       ></div>
     </div>
   </div>
-  <div class="blockRightNone" v-else-if="id">
-    {{ id }}
+  <div
+    class="blockRightNone"
+    v-else-if="Object.keys($store.getters[this.to]).length"
+  >
+    <img src="@/assets/img/icons/wind.png" class="blockRightNone__img" />
+    <div class="blockRightNone__text">
+      Нажмите на задачу, чтобы посмотреть её детали
+    </div>
   </div>
+  
 </template>
 <script>
 import _ from "lodash";
@@ -142,4 +149,17 @@ export default {
   content: attr(data-text)
   color: #909090
   font-size: 15px
+.blockRightNone
+  &__img
+    display: block
+    margin: 0 auto
+    margin-top: 250px
+  &__text
+    display: block
+    line-height: 32px
+    margin-top: 23px
+    width: 90%
+    text-align: center
+    font-size: 22px
+    color: rgba(0,0,0,.24)
 </style>

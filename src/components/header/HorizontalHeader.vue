@@ -6,10 +6,10 @@
       >
       <div class="HorizontalHeader__wrapper">
         <router-link to="/app" class="HorizontalHeader__link"
-          >О WayPeak
+          >Начать
         </router-link>
         <router-link to="/media" class="HorizontalHeader__link"
-          >Журнал
+          >О WayPeak
         </router-link>
         <router-link to="/support" class="HorizontalHeader__link"
           >Поддержка
