@@ -5,7 +5,7 @@
       class="HeaderGorizontal__img"
       @click="notActive"
     />
-    <div class="HeaderGorizontal__text">{{ text }}</div>
+    <div class="HeaderGorizontal__text">{{ text }} <span>{{search}}</span></div>
     <img
       src="@/assets/img/icons/cleaar.svg"
       class="HeaderGorizontal__clear"
@@ -17,7 +17,7 @@
 <script>
 export default {
   name: "HeaderGorizontal",
-  props: ["text"],
+  props: ["text", "search"],
   data() {
     return {
       width: screen.width,
@@ -61,10 +61,22 @@ export default {
     &:hover
       filter: invert(0.5)
   &__text
+    overflow: hidden
     margin-left: 16px
     margin-top: 4px
     font-size: 22px
+    line-height: 22px
+    display: flex
+    align-items: center
     color: rgba(0,0,0,.85)
+    span
+      padding-left: 10px
+      overflow: hidden
+      text-overflow: ellipsis
+      white-space: nowrap
+      display: block
+      width: 500px
+      color: #4b6fde
   &__img
     margin-left: 28px
     margin-top: 2px

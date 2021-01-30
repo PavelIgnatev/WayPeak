@@ -6,6 +6,7 @@
       class="centerView__wrapper"
       v-if="Object.keys($store.getters.returnsortInboxPost).length"
     >
+    
       <Item
         v-for="(item, index) in $store.getters.returnInboxPost"
         :description="item.description"

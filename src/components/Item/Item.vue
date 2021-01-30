@@ -1,5 +1,6 @@
 <template >
   <div  :class="{boxshadow: classes}">
+    {{indexOf}}
     <div class="Item" @click='activeRight' :class='[classes]'>
     <div
       class="Item__check"
@@ -17,14 +18,13 @@
         </div>
       </div>
     </router-link>
-    <div class="width" style="display: none"> {{wid}}</div>
   </div>
   </div>
 </template><script>
 import ItemData from "./ItemData";
 export default {
   name: "Item",
-  props: ["item", "keyy", "push", "del", "to", "data", "description", "classes"],
+  props: ["item", "keyy", "push", "del", "to", "data", "description", "classes", 'indexOf'],
   data() {
     return { width: screen.width };
   },
@@ -51,22 +51,6 @@ export default {
   },
   created() {
     window.addEventListener("resize", this.updateWidth);
-  },
-  computed:{
-    wid(){
-      if(this.width <= 1090){
-        this.$store.commit('falsehamburger')}
-      if(this.width <= 920){
-          this.$store.commit('falsemenuRight')
-        }
-      if(this.width > 920){ 
-        this.$store.commit('truemenuRight')}
-      if(this.width > 1090){
-          this.$store.commit('truehamburger')
-        }
-      
-
-    }
   },
   components: { ItemData },
 };

@@ -10,7 +10,7 @@
         :key="index"
         :keyy="index"
         :item="item.text"
-        classes='grey'
+        classes='fds'
         push="pushMess"
         del="deletePerformed"
         to="completed"

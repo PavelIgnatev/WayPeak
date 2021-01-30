@@ -85,6 +85,16 @@ const routes = [{
         }]
       },
       {
+        path: '/app/search',
+        components: {
+          a: () => import('../components/app/Search.vue'),
+          b: () => import('../components/appRight/blockRight.vue')
+        },
+        children: [{
+          path: '/app/search/:id'
+        }]
+      },
+      {
         path: '/app/week',
         component: () => import('../components/app/Week.vue')
       },

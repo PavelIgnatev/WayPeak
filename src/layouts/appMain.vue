@@ -26,19 +26,22 @@ export default {
     ModalInputSearch
 
   },
+
   async mounted() {
     if (!Object.keys(this.$store.getters.returnInboxPost).length) {
       await this.$store.dispatch("fetchMess");
     }
-  },
+  }
 };
 </script>
 <style lang="sass">
 @import '@/assets/sass/_variables'
 .containerMain
-  height: 100vh
-  width: 100vw
-  overflow: hidden
+  height: 100vh !important
+  max-width: 100vw !important
+  max-height: 100vh !important
+  width: 100vw !important
+  overflow: hidden !important
   user-select: none
   display: flex
 .appCenter  

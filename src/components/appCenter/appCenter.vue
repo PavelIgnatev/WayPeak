@@ -12,14 +12,14 @@ export default {
 .centerView
     max-height: 100vh
     max-height: 100vh
-    overflow: hidden
+    overflow: auto
     &__wrapper
       height: calc(100vh - 120px)
       margin-right: 25px
       overflow: auto
     .noTask
-      width: 100%
       margin-top: 110px
+      margin-bottom: 100px
       &__img
         display: block
         margin: 0 auto

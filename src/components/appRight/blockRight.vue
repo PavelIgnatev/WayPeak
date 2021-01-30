@@ -47,6 +47,7 @@ export default {
     return {
       paths: {
         all: ["returnInboxPost", "updateMess"],
+        search: ["returnInboxPost", "updateMess"],
         inbox: ["returnInboxPost", "updateMess"],
         completed: ["returnPerformedPost", "updatePerformed"],
         trash: ["returnTrashPost", "updateTrash"],

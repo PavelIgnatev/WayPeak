@@ -43,12 +43,14 @@ export default {
     return {
       paths: {
         all: "returnInboxPost",
+        search: "returnInboxPost",
         inbox: "returnInboxPost",
         completed: "returnPerformedPost",
         trash: "returnTrashPost",
       },
       del: {
         all: "deleteMess",
+        search: "deleteMess",
         inbox: "deleteMess",
         completed: "deletePerformed",
       },

@@ -1,8 +1,9 @@
-<template >
-  <router-link
+<template>
+  <router-link 
     :to="to"
     class="appHeader__item"
     :class="$route.path.includes(to) && to ? 'activeItem' : ''"
+    @click.native='cl'
   >
     <div class="appHeader_block">
       <img
@@ -12,7 +13,7 @@
       />
       <div class="date">{{ day }}</div>
     </div>
-    <div class="appHeader__text">
+    <div class="appHeader__text" >
       {{ title }}
       <span
         v-if="
@@ -22,6 +23,7 @@
         >{{ $store.getters.returnInboxPostLength }}</span
       >
     </div>
+    <div class="width" style="display: none"> {{wid}}</div>
   </router-link>
 </template>
 <script>
@@ -31,6 +33,7 @@ export default {
   data() {
     return {
       day: "",
+      width: screen.width 
     };
   },
   mounted() {
@@ -43,6 +46,33 @@ export default {
       this.day = Data.getDate() + 1;
     }
   },
+  methods: {
+    updateWidth() {
+      this.width = window.innerWidth;
+    },
+    cl(){
+      if(this.width < 1090){
+        this.$store.commit('falsehamburger')
+      }
+    }
+  },
+  computed:{
+    wid(){
+      if(this.width <= 1090){
+        this.$store.commit('falsehamburger')}
+      if(this.width <= 920){
+          this.$store.commit('falsemenuRight')
+        }
+      if(this.width > 920){ 
+        this.$store.commit('truemenuRight')}
+      if(this.width > 1090){
+          this.$store.commit('truehamburger')
+        }
+    }
+  },
+  created() {
+    window.addEventListener("resize", this.updateWidth);
+  }
 };
 </script>
 <style lang="sass">
