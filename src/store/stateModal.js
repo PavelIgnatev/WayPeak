@@ -1,7 +1,8 @@
 export default{
     state: {
         modalClose: false,
-        modelCloseItem: false
+        modelCloseItem: false,
+        reest: false
     },
     getters: {
         stateModalClose(state){
@@ -10,6 +11,9 @@ export default{
         stateModalCloseItem(state){
             return state.modelCloseItem
         },
+        stateReest(state){
+            return state.reest
+        }
     },
     mutations: {
         OpenModalClose(state){
@@ -23,6 +27,12 @@ export default{
         },
         CloseModalCloseItem(state){
             state.modelCloseItem = false
+        },
+        OpenReest(state){
+            state.reest = true
+        },
+        CloseReest(state){
+            state.reest = false
         }
     }
 }

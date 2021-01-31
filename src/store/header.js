@@ -4,10 +4,10 @@ export default {
                 //text: "Настройки",
               //to: "/app/q/setting"
             //},
-            {
-                text: "Статистика",
-                to: "/app/q/statistics"
-            }
+            //{
+            //    text: "Статистика",
+            //    to: "/app/q/statistics"
+            //}
         ],
         ToSettingMenu: [{
                 text: "Домашняя Страница",
@@ -17,10 +17,10 @@ export default {
                 text: "Центр помощи",
                 to: "/support"
             },
-            {
-                text: "Отзыв",
-                to: "/app/q/review"
-            }
+            //{
+            //    text: "Отзыв",
+            //    to: "/app/q/review"
+            //}
         ],
         MainHeaderItem: [{
                 title: "Все",

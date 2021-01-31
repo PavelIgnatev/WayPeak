@@ -10,7 +10,7 @@
         :key="index"
         :keyy="index"
         :item="item.text"
-        classes='fds'
+        classes='grey'
         push="pushMess"
         del="deletePerformed"
         to="completed"
@@ -43,5 +43,5 @@ export default {
 </script>
 <style lang="sass">
 .grey
-  opacity: .5 
+  opacity: .6
 </style>

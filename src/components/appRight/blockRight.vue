@@ -27,7 +27,7 @@
   </div>
   <div
     class="blockRightNone"
-    v-else-if="Object.keys($store.getters[this.to]).length"
+    v-else-if="Object.keys($store.getters[this.to]).length && width > 920"
   >
     <img src="@/assets/img/icons/wind.png" class="blockRightNone__img" />
     <div class="blockRightNone__text">
@@ -38,7 +38,6 @@
 </template>
 <script>
 import _ from "lodash";
-import FooterRight from "./footerRight/footerRight";
 import HeaderRight from "../headers/headerRight/headerRight";
 import ItemData from "../Item/ItemData";
 export default {
@@ -52,11 +51,11 @@ export default {
         completed: ["returnPerformedPost", "updatePerformed"],
         trash: ["returnTrashPost", "updateTrash"],
       },
-
       subtext: "",
+      width: screen.width 
     };
   },
-  components: { HeaderRight, ItemData, FooterRight },
+  components: { HeaderRight, ItemData },
   updated() {
     if (this.$store.getters[this.to][this.id]) {
       if (this.$refs.name.innerText == "") {
@@ -99,7 +98,13 @@ export default {
         formData
       );
     }, 500),
+    updateWidth() {
+      this.width = window.innerWidth;
+    }
   },
+  created() {
+    window.addEventListener("resize", this.updateWidth);
+  }
 };
 </script>
 <style lang="sass">
@@ -110,7 +115,7 @@ export default {
   position: relative
   &__wrapper
     overflow: auto !important
-    height: calc(100vh - 63px)
+    height: calc(100vh - 66px)
   &__name
     line-height: 24px
     font-size: 16px
@@ -151,6 +156,8 @@ export default {
   color: #909090
   font-size: 15px
 .blockRightNone
+  height: 100%
+  overflow: auto
   &__img
     display: block
     margin: 0 auto
@@ -163,4 +170,5 @@ export default {
     text-align: center
     font-size: 22px
     color: rgba(0,0,0,.24)
+    margin-bottom: 50px
 </style>

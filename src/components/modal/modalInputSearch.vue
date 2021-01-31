@@ -68,7 +68,7 @@ export default {
       left: 12px
     &_wrapper
       position: absolute
-      top: 50px
+      top: 53px
       left: 50%
       transform: translateX(-50%)
       width: 230px

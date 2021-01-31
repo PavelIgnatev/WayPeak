@@ -119,6 +119,7 @@ export default {
   z-index: 1000
   color: rgba(0,0,0,.85)
   padding: 0 24px 16px 24px
+  z-index: 10000001
   &__text
     margin-top: 15px
     font-weight: 700
@@ -138,14 +139,11 @@ export default {
     padding: 5px 20px 5px 20px
     min-width: 120px
     background: rgba(46,73,136,.08)
-    border: 1px solid rgba(0,0,0,.1)
+    border: 1px solid rgba(0,0,0,.1) !important
     transition: 0.2s ease-in-out
     height: 35px
     &:hover
       background: rgba(46,73,136,.16)
-      border: 1px solid rgba(0,0,0,.1)
-      &:active, &:focus
-        border: 1px solid rgba(0,0,0,.1)
   &__confirm
     font-size: 15px
     margin-left: 12px

@@ -49,6 +49,7 @@ export default {
   display: block
   padding: 6px 0
   padding-left: 15px
+  padding-right: 15px
   width: 100%
   font-size: 14px
   box-sizing: border-box
@@ -59,6 +60,7 @@ export default {
     border: 1px solid #97ace9
     padding: 5px 0
     padding-left: 15px
+    padding-right: 15px
   &::placeholder
     color: #909090
     font-size: 14px

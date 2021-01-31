@@ -1,10 +1,10 @@
-@media ( max-width:  1299px)
+@media ( max-width:  1230px)
+    .appCenter
+        width: 500px
     .Item__item
-        width: 32vw !important
-        max-width: 32vw !important
-    .it
-        width: 55vw !important
-        max-width: 55vw !important
+        max-width: 34vw !important
+    .it 
+        max-width: 57vw !important
 @media ( max-width:  1090px)
     .appLeft
         position: absolute
@@ -42,7 +42,29 @@
     .HeaderGorizontal__text
         span
             width: 280px !important
+    .centerView__input
+        &::placeholder
+            font-size: 12px  !important
+    .modalClose
+        width: 90%
+    .modalClose__wrapper
+        margin-left: 0
+        justify-content: flex-end
+    .boxshadow
+        &::after
+            right: 10% !important
+@media ( max-width:  460px)
+    .ItemData
+        right: 30px !important
+    
+@media ( max-width:  444px)
+    .modalClose__wrapper
+        margin-top: 25px
 @media ( max-width:  420px)
+    .ItemData
+        right: 3% !important
+    .modalClose
+        width: 98%
     .appRight
         width: 100vw !important
     .form__wrapper
@@ -56,3 +78,10 @@
     .HeaderGorizontal__text
         span
             width: 180px !important
+
+    .modalClose__confirm, .modalClose__close
+        font-size: 14px
+@media ( max-width:  350px)
+    .ItemData
+        right: 7% !important
+        

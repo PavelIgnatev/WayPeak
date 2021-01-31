@@ -2,7 +2,7 @@
   <div class="centerView">
     <HeaderGorizontal text="Все"></HeaderGorizontal>
     <FormSubmit></FormSubmit>
-    <div class="centerView__wrapper" v-if="Object.keys($store.getters.returnsortInboxPost).length">
+    <div class="centerView__wrapper"  v-if="Object.keys($store.getters.returnsortInboxPost).length">
       <Item
         v-for="(item, index) in this.$store.getters.returnsortInboxPost"
         :description="item[1].description"

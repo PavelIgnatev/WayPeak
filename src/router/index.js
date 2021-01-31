@@ -67,14 +67,6 @@ const routes = [{
         }]
       },
       {
-        path: '/app/today',
-        component: () => import('../components/app/Today.vue')
-      },
-      {
-        path: '/app/tomorrow',
-        component: () => import('../components/app/Tommorow.vue')
-      },
-      {
         path: '/app/trash',
         components: {
           a: () => import('../components/app/Trash.vue'),
@@ -95,11 +87,8 @@ const routes = [{
         }]
       },
       {
-        path: '/app/week',
-        component: () => import('../components/app/Week.vue')
-      },
-      {
         path: '/app/*',
+        redirect: '/app/all'
       }
     ]
   },

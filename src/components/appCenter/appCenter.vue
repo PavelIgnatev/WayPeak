@@ -15,7 +15,6 @@ export default {
     overflow: auto
     &__wrapper
       height: calc(100vh - 120px)
-      margin-right: 25px
       overflow: auto
     .noTask
       margin-top: 110px
