@@ -30,6 +30,9 @@ import Item from "../Item/Item";
 import HeaderGorizontal from "../headerGorizontal/HeaderGorizontal.vue";
 export default {
   name: "Trash",
+  metaInfo: {
+    title: 'Корзина'
+  },
   data() {
     return {};
   },

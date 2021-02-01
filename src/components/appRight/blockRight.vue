@@ -121,7 +121,7 @@ export default {
     font-size: 16px
     font-weight: 500
     margin-bottom: 15px
-    padding: 0 10px
+    padding: 0 20px
     text-decoration: none !important
     padding-top: 12px
     &::selection
@@ -131,7 +131,7 @@ export default {
     text-decoration: none !important
     line-height: 23px
     font-size: 16px
-    padding: 0 10px
+    padding: 0 20px
 *::selection
   background: #bad7fb
 .subtext

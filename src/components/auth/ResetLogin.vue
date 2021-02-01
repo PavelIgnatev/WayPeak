@@ -55,6 +55,9 @@
 import { email, required } from "vuelidate/lib/validators";
 export default {
   name: "Resetlogin",
+  metaInfo: {
+    title: 'Восстановление'
+  },
   data() {
     return {
       focusMail: false,

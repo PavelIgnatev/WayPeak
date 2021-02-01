@@ -17,8 +17,21 @@ export default {
 }
 </script>
 <style lang="sass">
+@import '@/assets/sass/_variables'
+.buttonGreen
+  display: block
+  text-align: center
+  background: $green
+  width: 240px
+  padding: 12px 0
+  border-radius: 5px
+  font-weight: 700
+  color: white
+  font-size: 20px
+  transition: 0.2s ease-in-out
+  cursor: pointer
+  user-select: none
+  &:hover
+    background: $twogreen
 
-.container
-  margin: 0 47.5px
-  position: relative
 </style>

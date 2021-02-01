@@ -42,6 +42,9 @@ import Item from "../Item/Item";
 import HeaderGorizontal from "../headerGorizontal/HeaderGorizontal.vue";
 export default {
   name: "All",
+  metaInfo: {
+    title: 'Поиск'
+  },
   data() {
     return {
       text: "",

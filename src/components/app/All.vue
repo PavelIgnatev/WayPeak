@@ -30,6 +30,9 @@ import FormSubmit from "../formSbm/FormSubmit";
 import HeaderGorizontal from "../headerGorizontal/HeaderGorizontal.vue";
 export default {
   name: "All",
+  metaInfo: {
+    title: 'Все'
+  },
   data() {
     return {
       text: "",

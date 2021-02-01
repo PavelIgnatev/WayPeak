@@ -10,12 +10,16 @@ export default {
             //}
         ],
         ToSettingMenu: [{
-                text: "Домашняя Страница",
+                text: "Главная",
                 to: "/"
             },
+            // {
+            //     text: "Поддержка",
+            //     to: "/support"
+            // },
             {
-                text: "Центр помощи",
-                to: "/support"
+                text: "О WayPeak",
+                to: "/about"
             },
             //{
             //    text: "Отзыв",

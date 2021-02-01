@@ -1,20 +1,31 @@
 <template >
   <div class="containerMain">
     <Preload></Preload>
-    <AppLeft :class="{AppLeftActive: $store.getters.returnHamburgerMenu}"></AppLeft>
+    <AppLeft
+      :class="{ AppLeftActive: $store.getters.returnHamburgerMenu }"
+    ></AppLeft>
     <AppCenter></AppCenter>
     <AppRight v-show="$store.getters.returnmenuRight"></AppRight>
-    <ModalMenuLeft v-show="$store.getters.returnmenuLeft && $store.getters.returnHamburgerMenu == true"></ModalMenuLeft>
-    <ModalInputSearch v-if="$store.getters.returninputActive && $store.getters.returnHamburgerMenu"></ModalInputSearch>
+    <ModalMenuLeft
+      v-show="
+        $store.getters.returnmenuLeft &&
+        $store.getters.returnHamburgerMenu == true
+      "
+    ></ModalMenuLeft>
+    <ModalInputSearch
+      v-if="
+        $store.getters.returninputActive && $store.getters.returnHamburgerMenu
+      "
+    ></ModalInputSearch>
   </div>
 </template>
 <script>
-import Preload from '../components/preload/preload'
+import Preload from "../components/preload/preload";
 import AppLeft from "../components/appLeft/AppLeft";
 import AppCenter from "../components/appCenter/appCenter";
 import AppRight from "../components/appRight/appRight";
 import ModalMenuLeft from "../components/modal/modalMenuLeft";
-import ModalInputSearch from '../components/modal/modalInputSearch'
+import ModalInputSearch from "../components/modal/modalInputSearch";
 export default {
   name: "app",
   components: {
@@ -23,15 +34,14 @@ export default {
     AppRight,
     Preload,
     ModalMenuLeft,
-    ModalInputSearch
-
+    ModalInputSearch,
   },
 
   async mounted() {
     if (!Object.keys(this.$store.getters.returnInboxPost).length) {
       await this.$store.dispatch("fetchMess");
     }
-  }
+  },
 };
 </script>
 <style lang="sass">
@@ -44,7 +54,7 @@ export default {
   overflow: hidden !important
   user-select: none
   display: flex
-.appCenter  
+.appCenter
   flex-grow: 1
   z-index: 1000
 .appRight
@@ -53,5 +63,5 @@ export default {
   z-index: 100
 .AppLeftActive
   left: 0
-  display: block  
+  display: block
 </style>

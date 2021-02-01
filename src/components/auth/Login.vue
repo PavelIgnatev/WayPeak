@@ -94,6 +94,9 @@
 import { email, required, minLength } from "vuelidate/lib/validators";
 
 export default {
+  metaInfo: {
+    title: 'Войти'
+  },
   name: "Login",
   data() {
     return {

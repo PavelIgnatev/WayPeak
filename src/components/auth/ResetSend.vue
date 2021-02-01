@@ -30,6 +30,9 @@
 </template>
 <script>
 export default {
+  metaInfo: {
+    title: 'Восстановление'
+  },
   name: "ResetSend",
   data() {
     return {

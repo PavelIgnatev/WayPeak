@@ -35,6 +35,9 @@ import FormSubmit from "../formSbm/FormSubmit";
 import HeaderGorizontal from "../headerGorizontal/HeaderGorizontal.vue";
 export default {
   name: "Inbox",
+  metaInfo: {
+    title: 'Входящие'
+  },
   data() {
     return {
       text: "",

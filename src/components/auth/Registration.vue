@@ -117,7 +117,7 @@
         ></label>
         <div class="form__checbox_text">
           Я согласен с условиями обработки
-          <router-link class="form__checbox_link" to="/"
+          <router-link class="form__checbox_link" to="/auth/registration"
             >персональных данных</router-link
           >
         </div>
@@ -148,6 +148,9 @@
 <script>
 import { email, required, minLength } from "vuelidate/lib/validators";
 export default {
+  metaInfo: {
+    title: 'Регистрация'
+  },
   name: "Registration",
   data() {
     return {

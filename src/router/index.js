@@ -96,10 +96,8 @@ const routes = [{
     path: '/',
     name: 'home',
     component: () => import('../layouts/home.vue'),
-    children: [{
-        path: '/company',
-        component: () => import('../views/PageNotFound.vue')
-      },
+    redirect: '/main',
+    children: [
       {
         path: '/about',
         component: () => import('../components/home/about.vue')
@@ -109,12 +107,12 @@ const routes = [{
         component: () => import('../components/home/support.vue')
       },
       {
-        path: '/media',
-        component: () => import('../components/home/media.vue')
+        path: '/',
+        component: () => import('../components/home/MainHome.vue')
       },
       {
         path: '/*',
-        component: () => import('../views/PageNotFound.vue')
+        redirect: '/'
       }
     ],
   }
