@@ -23,12 +23,10 @@ export default {
         font-size: 45px
         font-weight: 400
         line-height: 1.1
-        color: rgba(0,0,0,.85)
         margin-bottom: 30px
         span
             color: #35e95f
     &__subtitle
-        color: rgba(0,0,0,.85)
         font-size: 18px
         margin-bottom: 60px
     &__img  

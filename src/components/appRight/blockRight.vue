@@ -119,21 +119,18 @@ export default {
   &__name
     line-height: 24px
     font-size: 16px
-    font-weight: 500
+    font-weight: 600
     margin-bottom: 15px
     padding: 0 20px
     text-decoration: none !important
     padding-top: 12px
-    &::selection
-      padding: 5px 0
-      background: #bad7fb
   &__description
     text-decoration: none !important
     line-height: 23px
     font-size: 16px
     padding: 0 20px
 *::selection
-  background: #bad7fb
+  background: #bad7fb !important
 .subtext
   display: block
   margin-top: 20px
@@ -151,7 +148,10 @@ export default {
   &::placeholder
     font-size: 14px
     color: #909090
-[contentEditable=true]:empty:not(:focus):before
+[contentEditable=true]:empty:before
+  position: absolute
+  z-index: -1
+  user-select: none
   content: attr(data-text)
   color: #909090
   font-size: 15px

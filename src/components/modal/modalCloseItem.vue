@@ -122,7 +122,7 @@ export default {
   z-index: 10000001
   &__text
     margin-top: 15px
-    font-weight: 700
+    font-weight: 600
     font-size: 18px
   &__descr
     margin-top: 35px

@@ -1,35 +1,30 @@
 @font-face 
-    font-family: 'Graphik'
-    src: local('../fonts/Graphik Regular'), local('Graphik-Regular')
-    src: url('../fonts/Graphik-Regular.woff2') format('woff2')
-    src: url('../fonts/Graphik-Regular.woff') format('woff')
-    src: url('../fonts/Graphik-Regular.ttf') format('truetype')
+    font-family: 'Segoe UI'
+    src: local('Segoe UI Regular'), local('Segoe-UI-Regular'),
+    src: url('../fonts/SegoeUI.woff2') format('woff2'),
+    src: url('../fonts/SegoeUI.woff') format('woff'),
+    src: url('../fonts/SegoeUI.ttf') format('truetype')
     font-weight: 400
     font-style: normal
+
 @font-face 
-    font-family: 'Graphik'
-    src: local('../fonts/Graphik Bold'), local('Graphik-Bold')
-    src: url('../fonts/Graphik-Bold.woff2') format('woff2')
-    src: url('../fonts/Graphik-Bold.woff') format('woff')
-    src: url('../fonts/Graphik-Bold.ttf') format('truetype')
-    font-weight: 700
+    font-family: 'Segoe UI'
+    src: local('Segoe UI SemiBold'), local('Segoe-UI-SemiBold'),
+    src: url('../fonts/SegoeUI-SemiBold.woff2') format('woff2'),
+    src: url('../fonts/SegoeUI-SemiBold.woff') format('woff'),
+    src: url('../fonts/SegoeUI-SemiBold.ttf') format('truetype')
+    font-weight: 600
     font-style: normal
-@font-face
-    font-family: 'Graphik'
-    src: local('../fonts/Graphik Medium'), local('Graphik-Medium'),
-    src: url('../fonts/Graphik-Medium.woff2') format('woff2'),
-    src: url('../fonts/Graphik-Medium.woff') format('woff'),
-    src: url('../fonts/Graphik-Medium.ttf') format('truetype')
-    font-weight: 500
-    font-style: normal
+
 @import './_media'
 *
     &:focus, &:active
         border: 0
         outline: none
     border: 0
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
 html
-    font-family: 'Graphik', sans-serif
+    font-family: 'Segoe UI'
     font-weight: 400
     font-size: 18px
     line-height: 26px

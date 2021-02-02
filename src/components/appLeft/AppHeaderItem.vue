@@ -101,11 +101,10 @@ export default {
       position: absolute
       font-size: 9px
       color: white
-      font-weight: 700
+      font-weight: 600
       top: -0.5px
       left: 14.3px
   &__text
-    margin-top: 2px
     margin-left: 2px
     span
       position: absolute

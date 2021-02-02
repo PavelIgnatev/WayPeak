@@ -63,7 +63,7 @@ export default {
   transition: 0.2s ease-in-out
   border-bottom: 1px solid rgba(0,0,0,.1)
 .activeTab
-  font-weight: 700
+  font-weight: 600
   font-size: 13.5px !important
   color: #2c2727 !important
   border-bottom: 1px solid #2c2727 !important

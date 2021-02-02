@@ -25,12 +25,13 @@ export default {
   width: 240px
   padding: 12px 0
   border-radius: 5px
-  font-weight: 700
+  font-weight: 600
   color: white
   font-size: 20px
   transition: 0.2s ease-in-out
   cursor: pointer
   user-select: none
+  margin-bottom: 75px
   &:hover
     background: $twogreen
 

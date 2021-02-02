@@ -107,6 +107,10 @@ const routes = [{
         component: () => import('../components/home/support.vue')
       },
       {
+        path: '/useragreement',
+        component: () => import('../components/user/useragreement.vue')
+      },
+      {
         path: '/',
         component: () => import('../components/home/MainHome.vue')
       },

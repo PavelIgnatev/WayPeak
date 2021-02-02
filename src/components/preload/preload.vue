@@ -35,8 +35,8 @@ export default {
   position: absolute
   top: 0
   left: 0
-  width: 100%
+  width: 100vw
   height: 100vh
   background: white
-  z-index: 10000000000000000000000
+  z-index: 10000000
 </style>

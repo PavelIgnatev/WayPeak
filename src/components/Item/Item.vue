@@ -1,6 +1,5 @@
 <template >
   <div  :class="{boxshadow: classes}">
-    {{indexOf}}
     <div class="Item" @click='activeRight' :class='[classes]'>
     <div
       class="Item__check"
@@ -36,6 +35,9 @@ export default {
         data: this.data,
         description: this.description,
       };
+      if(this.$route.params.id){
+        this.$router.push(`/app/${this.$route.path.split('/')[1]}`)
+      }
       await this.$store.dispatch(`${this.push}`, fromData);
       await this.$store.dispatch(`${this.del}`, fromData);
     },

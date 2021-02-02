@@ -48,6 +48,7 @@
         </div>
       </div>
     </div>
+    <div class="appHeader__cover" @click="c"></div>
   </div>
 </template>
 <script>
@@ -80,6 +81,11 @@ export default {
     AppHeaderItem,
     AppHeaderTabs,
   },
+  methods: {
+    c(){
+      this.$store.commit('falsehamburger')
+    }
+  },
 };
 </script>
 <style lang="sass">
@@ -93,6 +99,15 @@ export default {
   transition: 0.2s all
   box-sizing: border-box
   border-right: 1px solid rgba(0,0,0,.15)
+  z-index: 10000001
+  &__cover
+    display: none
+    position: absolute
+    top: 0
+    left: 260px
+    width: calc(100vw - 260px)
+    height: 100%
+    z-index: 10000
   &__header
     padding: 0 15px
     height: 64px
@@ -148,8 +163,10 @@ export default {
     height: calc(100vh - 64px)
   .activeItem
     background-color: rgba(75,111,222,.2)
-    font-weight: 700
+    font-weight: 600
     font-size: 13.5px
+    .appHeader__text
+      margin-bottom: 2px
     span
       color: black
   .line

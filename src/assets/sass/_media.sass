@@ -6,6 +6,8 @@
     .it 
         max-width: 57vw !important
 @media ( max-width:  1090px)
+    .appHeader__cover 
+        display: block !important
     .appLeft
         position: absolute
         display: none
@@ -28,7 +30,7 @@
         width: 100%
         display: flex
         align-items: center
-        font-weight: 700
+        font-weight: 600
         font-size: 16px
         color: rgba(0,0,0,.85) !important
         &:hover 
@@ -43,7 +45,7 @@
         background: white
         flex-direction: column
         z-index: 1000000
-        box-shadow: 0 28px 38px 0 rgba(0,0,0,.21), inset 0 4px 8px 0 rgba(0,0,0,.06)
+        box-shadow: 0 28px 38px 0 rgba(0,0,0,.10)
         border-radius: 5px
 
     .HorizontalHeader__login
@@ -77,6 +79,8 @@
         span
             width: 400px !important
 @media ( max-width:  820px)
+    .about__title
+        margin-top: 80px !important
     .Main-home__heading, .Main-home__subtitle, .about__title, .about__subtitle
         text-align: center
     .Main-home
@@ -91,6 +95,10 @@
         width: 80% !important
         padding-top: 0px !important
 @media ( max-width:  620px)
+    .about__title
+        margin-top: 70px !important
+    .container
+        width: calc(100% - 55px) !important
     .Main-home__heading, .about__title
         font-size: 35px !important
     .Main-home__subtitle
@@ -125,8 +133,8 @@
         margin-top: 25px
 @media ( max-width:  420px)
     .Main-home__heading
-        font-size: 25px !important
-    .Main-home__subtitle
+        font-size: 30px !important
+    .Main-home__subtitle, .about__subtitle
         font-size: 14px !important
     .ItemData
         right: 3% !important
@@ -151,8 +159,6 @@
 @media ( max-width:  350px)
     .buttonGreen
         width: 100% !important
-    .Main-home__heading
-        font-size: 20px !important
     .ItemData
         right: 7% !important
         

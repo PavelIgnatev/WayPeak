@@ -34,7 +34,7 @@
             },
           ]"
         />
-        <label for="name">Фамилия</label>
+        <label for="sername">Фамилия</label>
       </div>
       <div class="form__mail">
         <input
@@ -117,7 +117,7 @@
         ></label>
         <div class="form__checbox_text">
           Я согласен с условиями обработки
-          <router-link class="form__checbox_link" to="/auth/registration"
+          <router-link class="form__checbox_link" to="/useragreement" target='_blank'
             >персональных данных</router-link
           >
         </div>

@@ -36,13 +36,13 @@ export default {
     font-size: 16px
     line-height: 22px
     span
-      font-weight: 700
+      font-weight: 600
   &__icon
     margin-top: 64px
     margin-bottom: 64px
   &__wrapper
     width: 350px
-    height: 390px
+    height: 480px
     padding: 52px 76px 36px 76px
     background: $white
     color: $black
@@ -50,7 +50,7 @@ export default {
   &__text
     letter-spacing: -0.5px
     font-size: 20px
-    font-weight: 700
+    font-weight: 600
     margin-bottom: 46px
   &__checkbox
     margin-top: 3.5px
@@ -137,7 +137,7 @@ export default {
     padding-bottom: 50px !important
     a
       transition: 0.2s ease-in-out
-      font-weight: 700
+      font-weight: 600
       color: black
       font-size: 15px
       position: relative
@@ -213,7 +213,7 @@ export default {
     color: $green
     display: inline
     cursor: pointer
-    font-weight: 700
+    font-weight: 600
   &_time
     display: inline
     color: rgb(180, 185, 203)

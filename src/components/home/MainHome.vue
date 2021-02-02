@@ -28,7 +28,7 @@ export default {
         width: 100%
         display: flex
         &__heading
-            font-weight: 700
+            font-weight: 600
             font-size: 65px
             line-height: 1.4
             margin-bottom: 32px

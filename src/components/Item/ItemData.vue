@@ -51,7 +51,7 @@ export default {
 .ItemData
   top: 50%
   transform: translateY(-50%)
-  right: 0px
+  right: 12px
   position: absolute
   color: #4e71de
   font-size: 12px

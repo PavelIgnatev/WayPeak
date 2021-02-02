@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="sendDate" class="FormSubmit">
+  <form @submit.prevent="sendDate" class="FormSubmit" @click="closeRight">
     <input
       class="centerView__input"
       type="text"
@@ -36,6 +36,9 @@ export default {
       } catch (e) {
       }
     },
+    closeRight(){
+      this.$store.commit("falsemenuRight")
+    }
   },
   components: {},
 };
