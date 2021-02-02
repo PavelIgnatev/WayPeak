@@ -168,6 +168,7 @@ export default {
     .appHeader__text
       margin-bottom: 2px
     span
+      margin-top: 1px
       color: black
   .line
     margin: 5px 0

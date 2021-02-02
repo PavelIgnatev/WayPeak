@@ -19,6 +19,7 @@ export default {
     return {
       text: "",
       show: true,
+      width: screen.width
     };
   },
   methods: {
@@ -37,10 +38,18 @@ export default {
       }
     },
     closeRight(){
-      this.$store.commit("falsemenuRight")
+      if(this.width < 920){
+        this.$store.commit("falsemenuRight")
+      }
+    },
+    updateWidth() {
+      this.width = window.innerWidth;
     }
   },
   components: {},
+  created() {
+    window.addEventListener("resize", this.updateWidth);
+  }
 };
 </script>
 <style lang="sass">
