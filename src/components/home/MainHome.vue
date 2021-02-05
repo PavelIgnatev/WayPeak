@@ -30,7 +30,7 @@ export default {
         &__heading
             font-weight: 600
             font-size: 65px
-            line-height: 1.4
+            line-height: 1.3
             margin-bottom: 32px
         &__subtitle
             font-size: 18px

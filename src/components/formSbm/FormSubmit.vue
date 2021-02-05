@@ -56,7 +56,7 @@ export default {
 .FormSubmit
   display: block
   height: 36px
-  margin: 0 45px 12px 28px
+  margin: 0 35px 12px 28px
 .centerView__input
   display: block
   padding: 6px 0

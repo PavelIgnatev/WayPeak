@@ -243,7 +243,7 @@ export default {
 <style lang="sass">
 .agreement
     position: absolute
-    width: 90%
+    width: 100%
     margin-top: 50px
     font-weight: 400
     color: #212529

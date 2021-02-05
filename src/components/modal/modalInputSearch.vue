@@ -1,5 +1,5 @@
 <template >
-  <div class="appHeader__input">
+  <form class="appHeader__input" @submit.prevent='to'>
     <input
       type="text"
       placeholder="Поиск"
@@ -21,7 +21,8 @@
       class="appHeader__input__rgba"
       @click="$store.commit('falseinputActive')"
     ></div>
-  </div>
+    <input type="submit" style="position: absolute; top: -300px;z-index: -1">
+  </form>
 </template>
 <script>
 export default {
@@ -42,6 +43,10 @@ export default {
     },
     updateWidth() {
       this.width = window.innerWidth;
+    },
+    to(){
+      this.$router.push(`/app/search/${this.search}`)
+      this.close()
     }
   },
 };
