@@ -45,7 +45,7 @@ export default {
       this.width = window.innerWidth;
     },
     to(){
-      this.$router.push(`/app/search/${this.search}`)
+      if(this.search){this.$router.push(`/app/search/${this.search}`)}
       this.close()
     }
   },
