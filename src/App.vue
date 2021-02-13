@@ -27,7 +27,8 @@ export default {
   border-radius: 5px
   font-weight: 600
   color: white
-  font-size: 20px
+  padding-bottom: 14px
+  font-size: 22px
   transition: 0.2s ease-in-out
   cursor: pointer
   user-select: none
